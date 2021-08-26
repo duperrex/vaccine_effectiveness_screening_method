@@ -10,4 +10,4 @@ editor_options:
 
 Vaccine effectiveness by screening method © 2021 by Olivier Duperrex is licensed under CC BY-NC-SA 4.0
 
-Citation: Duperrex O., Vaccine effectiveness by screening method. 2021
+Citation: Duperrex O., Vaccine effectiveness by screening method. 2021. https://github.com/duperrex/vaccine_effectiveness_screening_method
