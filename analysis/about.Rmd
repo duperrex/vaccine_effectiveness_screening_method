@@ -7,4 +7,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+Vaccine effectiveness by screening method
+
+This project ainms to share my understanding and exploring the use of the screening / case-population method to quickly assess the COVID-19 vaccine effectiveness with available data, in order to inform decisions by the Chief Medical Officer.
+
+olivier.duperrex_unisante.ch
+
+
+
