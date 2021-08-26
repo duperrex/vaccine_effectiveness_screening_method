@@ -25,6 +25,8 @@ wflow_publish('analysis/about.Rmd',
 wflow_publish('analysis/license.Rmd',
               'Update info')
 
+wflow_publish('README.md', 'Update text')
+
 wflow_publish('analysis/VE_nomogram.Rmd',
               'Initial commit')
 
