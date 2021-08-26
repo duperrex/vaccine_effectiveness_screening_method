@@ -1,4 +1,4 @@
-# vaccine_effectiveness
+# vaccine_effectiveness_screening_method
 
 A [workflowr][] project.
 
