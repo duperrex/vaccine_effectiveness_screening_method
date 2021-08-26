@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="olivier.duperrex@unisante.ch" />
+
+
+<title>COVID-19 - VD - Vaccine efficiency/effectiveness - nomogram</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">vaccine_effectiveness_screening_method</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">COVID-19 - VD - Vaccine efficiency/effectiveness - nomogram</h1>
+<h4 class="author"><a href="mailto:olivier.duperrex@unisante.ch" class="email">olivier.duperrex@unisante.ch</a></h4>
+<h4 class="date">version 2021-08-26</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-08-26
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>vaccine_effectiveness_screening_method/analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210826code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210826)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210826code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210826)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstronge5ffc18"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> e5ffc18 </a>
+</p>
+</div>
+<div id="strongRepositoryversionstronge5ffc18" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version e5ffc18. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  0_run_ME.R
+    Untracked:  analysis/references.bib
+    Untracked:  images/
+    Untracked:  output/png4ppt/
+
+Unstaged changes:
+    Modified:   _workflowr.yml
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/VE_nomogram.Rmd</code>) and HTML (<code>docs/VE_nomogram.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+e5ffc18
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-08-26
+</td>
+<td>
+Initial commit
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p><em>TODO : add comments</em></p>
+<div id="context" class="section level1">
+<h1>Context</h1>
+<ul>
+<li><p>In real life public health, we need to understand if the vaccination is helping to control the COVID-19, or if we need to investigate further.</p></li>
+<li><p>WHO discourages the use of the case-population method (‘screening’) to evaluate the vaccine effectiveness in this context, but states that it is appropriate “if there is a need for more rigorous investigation.”<span class="citation">(WHO 2021)</span> - For details of strength and weakness, please refer to Table 1 of the document</p></li>
+</ul>
+<div class="figure" style="text-align: center">
+<img src="C:/Users/ol8094/Documents/_analyses/vaccine_effectiveness_screening_method/images/vaccine_surveillance_WHO_2021_en.png" alt="WHO. Evaluation of COVID-19 vaccine effectiveness. 2021" width="80%" />
+<p class="caption">
+WHO. Evaluation of COVID-19 vaccine effectiveness. 2021
+</p>
+</div>
+</div>
+<div id="aim" class="section level1">
+<h1>Aim</h1>
+<ul>
+<li><p>Recreate the vaccine efficacy (VE) nomogram from Orenstein 1985 paper <span class="citation">(Orenstein et al. 1985)</span></p></li>
+<li><p>Add some values to quickly check where the current vaccine effectiveness is</p></li>
+<li><p>Calculate vaccine effectiveness approximation using the Farrington method <span class="citation">(Farrington 1993)</span></p></li>
+</ul>
+</div>
+<div id="setting-up-the-scene" class="section level1">
+<h1>Setting up the scene</h1>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, comment = NA, include = TRUE, fig.width = 7, fig.height = 7)
+# avoid scientific notation
+options(scipen=999)
+
+
+## you are here -----------------------------------------------------
+# rm(list = ls())
+here::here()</code></pre>
+<pre><code>[1] &quot;C:/Users/ol8094/Documents/_analyses/vaccine_effectiveness_screening_method&quot;</code></pre>
+<div id="select-language-for-graph-labels" class="section level2">
+<h2>Select language for graph labels</h2>
+<pre class="r"><code>
+# language_chosen &lt;- &quot;en&quot;
+language_chosen &lt;- &quot;fr&quot;
+
+if (language_chosen == &#39;fr&#39;) {
+  ## labels fr ---------------------------------
+  lab_y &lt;- &quot;PCV = proportion des cas vaccinés&quot;
+  lab_x &lt;- &quot;PPV = proportion de la population vaccinée&quot;
+  title &lt;- &quot;Approximation rapide de l&#39;efficacité vaccinale réelle (VE)&quot;
+  subtitle &lt;- &quot;Evaluation rapide / cas-population / Orenstein et Farrington&quot;
+  lab_VE &lt;- &quot;Efficacité vaccinale&quot;
+} else {
+
+## labels en ---------------------------------
+lab_y &lt;- &quot;PCV = proportion of cases vaccinated&quot;
+lab_x &lt;-  &quot;PPV = proportion of population vaccinated&quot;
+title &lt;- &quot;Rapid assesment of vaccine effectivenes (VE)&quot;
+subtitle &lt;- &quot;Screening / case-population / Orenstein and Farrington method&quot;
+lab_VE &lt;- &quot;Vaccine efficacy&quot;
+}</code></pre>
+</div>
+<div id="the-equations" class="section level2">
+<h2>The equations</h2>
+<pre class="r"><code>
+VE_equation &lt;- &quot;VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))&quot;
+PCV_equation &lt;- &quot;PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))&quot;
+
+# caption_table : will be used as caption
+caption_table &lt;- VE_equation</code></pre>
+</div>
+<div id="load-libraries" class="section level2">
+<h2>Load libraries</h2>
+<pre class="r"><code>pacman::p_load(
+  data.table,
+  ggplot2,
+  ggpmisc,
+  ggrepel,
+  scales
+)</code></pre>
+</div>
+<div id="setup-plots-and-tables" class="section level2">
+<h2>Setup plots and tables</h2>
+<pre class="r"><code>## themes and title for plots ---------------------------------------
+theme_set(sjPlot::theme_sjplot2(base_size = 10))
+Registered S3 methods overwritten by &#39;parameters&#39;:
+  method                           from      
+  as.double.parameters_kurtosis    datawizard
+  as.double.parameters_skewness    datawizard
+  as.double.parameters_smoothness  datawizard
+  as.numeric.parameters_kurtosis   datawizard
+  as.numeric.parameters_skewness   datawizard
+  as.numeric.parameters_smoothness datawizard
+  print.parameters_distribution    datawizard
+  print.parameters_kurtosis        datawizard
+  print.parameters_skewness        datawizard
+  summary.parameters_kurtosis      datawizard
+  summary.parameters_skewness      datawizard
+theme_update(
+  legend.title = element_blank(),
+  legend.position = &quot;right&quot;
+)
+
+## Prepare some elements for plots ----------------------------------
+# out_png4ppt : output folder for png ---
+# needs to be modified according to your own project structure
+out_png4ppt &lt;- here::here(&#39;output&#39;, &#39;png4ppt&#39;) 
+
+# if(!fs::dir_exists(out_png4ppt)){
+#   fs::dir_create(out_png4ppt)
+# }</code></pre>
+</div>
+</div>
+<div id="prepare-the-nomogram" class="section level1">
+<h1>Prepare the nomogram</h1>
+<pre class="r"><code>## create a list of VE ----------------------------------------------
+## selecting only 3 for clarity
+VE_list &lt;- c(0.5, 0.85, 0.95)
+
+## create the list for PPV ------------------------------------------
+PPV &lt;- seq(0, 1, 0.01)
+
+## create a data.table with combined values -------------------------
+dt_1 &lt;- setDT(merge(PPV, VE_list))
+
+## rename columns ---------------------------------------------------
+setnames(dt_1, c(&#39;x&#39;, &#39;y&#39;), c(&#39;PPV&#39;, &#39;VE&#39;))
+
+## calculate the PCV -----------------------------------------------
+dt_1[, PCV := (PPV - (PPV * VE)) / (1 - (PPV * VE))]
+
+head(dt_1)
+    PPV  VE         PCV
+1: 0.00 0.5 0.000000000
+2: 0.01 0.5 0.005025126
+3: 0.02 0.5 0.010101010
+4: 0.03 0.5 0.015228426
+5: 0.04 0.5 0.020408163
+6: 0.05 0.5 0.025641026
+tail(dt_1)
+    PPV   VE       PCV
+1: 0.95 0.95 0.4871795
+2: 0.96 0.95 0.5454545
+3: 0.97 0.95 0.6178344
+4: 0.98 0.95 0.7101449
+5: 0.99 0.95 0.8319328
+6: 1.00 0.95 1.0000000</code></pre>
+<pre class="r"><code>## p1 - plot w nomogram ---------------------------------------------
+## saved as p0_VE_nomogram.png
+(p1 &lt;- ggplot(dt_1,
+              aes(PPV, PCV, group = VE,
+                  label = ifelse(PPV == 0.8, percent(VE), &quot;&quot;))) +
+    geom_line() +
+    labs(
+      title = title,
+      subtitle = subtitle,
+      x = lab_x,
+      y = lab_y,
+      caption = caption_table
+    ) +
+    scale_x_continuous(n.breaks = 10) +
+    scale_y_continuous(n.breaks = 10) +
+    ggrepel::geom_text_repel(nudge_y = 0.02) +
+    annotate(&#39;text&#39;, x = 0.77, y = 0.8, label = &quot;VE&quot;) +
+
+    theme(plot.subtitle = ggtext::element_markdown())
+    )</code></pre>
+<p><img src="figure/VE_nomogram.Rmd/p1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>
+
+
+ggsave(&quot;p0_VE_nomogram.png&quot;, path = out_png4ppt)
+Saving 7 x 7 in image</code></pre>
+</div>
+<div id="create-some-examples" class="section level1">
+<h1>Create some examples</h1>
+<pre class="r"><code>## example tables  --------------------------------------------------
+(t1_PPV50 &lt;-
+   dt_1[PPV == 0.5,][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+
+(t2_PPV40 &lt;-
+    dt_1[PPV == 0.4, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+
+(t3_PPV80 &lt;-
+    dt_1[PPV == 0.8, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])</code></pre>
+<div id="ppv-50" class="section level2">
+<h2>PPV 50%</h2>
+<pre class="r"><code>
+## p0_1_VE_nomogram_PPV_50.png ------------------------------------------
+p1_ppv50 &lt;- p1 + annotate(&#39;table&#39;, x = 0.2, y = 0.89, label = list(t1_PPV50))
+ggsave(&quot;p0_1_VE_nomogram_PPV_50_no_data.png&quot;, path = out_png4ppt)
+Saving 7 x 7 in image
+
+## manual update 
+ppv_vd_all &lt;- 0.485
+pcv_vd_all &lt;- 0.023
+
+
+
+ve_vd_all &lt;- formattable::percent(1 - (pcv_vd_all / (1 - pcv_vd_all)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+
+label_vd_all &lt;-
+  paste0(&quot;PPV : &quot;,
+         ppv_vd_all,
+         &quot; - PCV : &quot;,
+         pcv_vd_all,
+         &quot; =&gt; VE : &quot;,
+         ve_vd_all)
+
+## add an hypothetical value
+pcv_hypothetical &lt;- 0.1
+
+ve_hypothetical &lt;- formattable::percent(1 - (pcv_hypothetical / (1 - pcv_hypothetical)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+
+label_hypothetical &lt;-
+  paste0(&quot;PPV : &quot;,
+         ppv_vd_all,
+         &quot; - PCV : &quot;,
+         pcv_hypothetical,
+         &quot; =&gt; VE : &quot;,
+         ve_hypothetical)
+
+p1_ppv50 +
+  geom_point(x = ppv_vd_all,
+             y = pcv_vd_all,
+             col = &#39;darkgreen&#39;,
+             size = 4) +
+  annotate(
+    &#39;text&#39;,
+    x = ppv_vd_all,
+    y = pcv_vd_all,
+    hjust = -0.1,
+    col = &#39;darkgreen&#39;,
+    label = label_vd_all
+  ) +
+  geom_point(x = ppv_vd_all,
+             y = pcv_hypothetical,
+             col = &#39;red&#39;,
+             size = 4) +
+  annotate(
+    &#39;text&#39;,
+    x = ppv_vd_all,
+    y = pcv_hypothetical,
+    hjust = -0.1,
+    col = &#39;red&#39;,
+    label = label_hypothetical
+  )</code></pre>
+<p><img src="figure/VE_nomogram.Rmd/p1_ppv50-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>
+ggsave(&quot;p0_1_VE_nomogram_PPV_50_data_VD_global.png&quot;, path = out_png4ppt)
+Saving 7 x 7 in image</code></pre>
+</div>
+<div id="ppv-40" class="section level2">
+<h2>PPV 40%</h2>
+<pre class="r"><code>## manual update 
+ppv_vd_all &lt;- 0.485
+pcv_vd_all &lt;- 0.023
+
+
+
+ve_vd_all &lt;- formattable::percent(1 - (pcv_vd_all / (1 - pcv_vd_all)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+
+label_vd_all &lt;-
+  paste0(&quot;PPV : &quot;,
+         ppv_vd_all,
+         &quot; - PCV : &quot;,
+         pcv_vd_all,
+         &quot; - VE : &quot;,
+         ve_vd_all)
+
+p1 + annotate(&#39;table&#39;,
+              x = 0.2,
+              y = 0.89,
+              label = list(t2_PPV40)) +
+  geom_point(x = ppv_vd_all,
+             y = pcv_vd_all,
+             col = &#39;darkgreen&#39;,
+             size = 4
+             ) +
+  annotate(&#39;text&#39;,
+    x = ppv_vd_all,
+    y = pcv_vd_all,
+    hjust = - 0.1,
+    col = &#39;darkgreen&#39;,
+    label = label_vd_all)</code></pre>
+<p><img src="figure/VE_nomogram.Rmd/p1_ppv40-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>
+ggsave(&quot;p0_2_VE_nomogram_PPV_40.png&quot;, path = out_png4ppt)
+Saving 7 x 7 in image</code></pre>
+</div>
+<div id="ppv-80" class="section level2">
+<h2>PPV 80%</h2>
+<pre class="r"><code>
+ppv_vd_seniors &lt;- 0.785
+pcv_vd_seniors &lt;- 0.115
+
+ve_vd_seniors &lt;- formattable::percent(1 - (pcv_vd_seniors / (1 - pcv_vd_seniors)) / (ppv_vd_seniors / (1 - ppv_vd_seniors)), 1)
+
+label_vd_seniors &lt;-
+  paste0(&quot;PPV : &quot;,
+         ppv_vd_seniors,
+         &quot; - PCV : &quot;,
+         pcv_vd_seniors,
+         &quot; - VE : &quot;,
+         ve_vd_seniors)
+
+p1 + annotate(&#39;table&#39;,
+              x = 0.2,
+              y = 0.89,
+              label = list(t3_PPV80)) +
+  geom_point(x = ppv_vd_seniors,
+             y = pcv_vd_seniors,
+             col = &#39;purple&#39;,
+             size = 4) +
+  annotate(&#39;text&#39;,
+           x = ppv_vd_seniors,
+           y = pcv_vd_seniors,
+           vjust = 3,
+           col = &#39;purple&#39;,
+           label = label_vd_seniors)</code></pre>
+<p><img src="figure/VE_nomogram.Rmd/p1_ppv80-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>
+ggsave(&quot;p0_3_VE_nomogram_PPV_80.png&quot;, path = out_png4ppt)
+Saving 7 x 7 in image</code></pre>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-farrington1993" class="csl-entry">
+Farrington, CP. 1993. <span>“Estimation of Vaccine Effectiveness Using the Screening Method.”</span> <em>International Journal of Epidemiology</em> 22 (4): 742–46. <a href="https://doi.org/10.1093/ije/22.4.742">https://doi.org/10.1093/ije/22.4.742</a>.
+</div>
+<div id="ref-orenstein1985" class="csl-entry">
+Orenstein, W. A., R. H. Bernier, T. J. Dondero, A. R. Hinman, J. S. Marks, K. J. Bart, and B. Sirotkin. 1985. <span>“Field Evaluation of Vaccine Efficacy.”</span> <em>Bulletin of the World Health Organization</em> 63 (6): 1055–68. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2536484/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2536484/</a>.
+</div>
+<div id="ref-who2021" class="csl-entry">
+WHO. 2021. <span>“Evaluation of COVID-19 Vaccine Effectiveness.”</span> Geneva, Switzerland. <a href="https://apps.who.int/iris/bitstream/handle/10665/340301/WHO-2019-nCoV-vaccine-effectiveness-measurement-2021.1-eng.pdf?sequence=1&amp;isAllowed=y">https://apps.who.int/iris/bitstream/handle/10665/340301/WHO-2019-nCoV-vaccine-effectiveness-measurement-2021.1-eng.pdf?sequence=1&amp;isAllowed=y</a>.
+</div>
+</div>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()
+R version 4.1.0 (2021-05-18)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 18363)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=French_Switzerland.1252  LC_CTYPE=French_Switzerland.1252   
+[3] LC_MONETARY=French_Switzerland.1252 LC_NUMERIC=C                       
+[5] LC_TIME=French_Switzerland.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] scales_1.1.1      ggrepel_0.9.1     ggpmisc_0.4.2-1   ggpp_0.4.2       
+[5] ggplot2_3.3.5     data.table_1.14.0 workflowr_1.6.2  
+
+loaded via a namespace (and not attached):
+ [1] tidyr_1.1.3        splines_4.1.0      here_1.0.1         modelr_0.1.8      
+ [5] datawizard_0.2.0   assertthat_0.2.1   highr_0.9          yaml_2.2.1        
+ [9] bayestestR_0.10.5  pillar_1.6.2       backports_1.2.1    lattice_0.20-44   
+[13] quantreg_5.86      glue_1.4.2         digest_0.6.27      gridtext_0.1.4    
+[17] promises_1.2.0.1   minqa_1.2.4        colorspace_2.0-2   htmltools_0.5.1.1 
+[21] httpuv_1.6.1       Matrix_1.3-4       conquer_1.0.2      pkgconfig_2.0.3   
+[25] broom_0.7.9        sjPlot_2.8.9       SparseM_1.81       purrr_0.3.4       
+[29] xtable_1.8-4       mvtnorm_1.1-2      whisker_0.4        later_1.2.0       
+[33] lme4_1.1-27.1      MatrixModels_0.5-0 emmeans_1.6.3      git2r_0.28.0      
+[37] tibble_3.1.3       farver_2.1.0       generics_0.1.0     sjlabelled_1.1.8  
+[41] ellipsis_0.3.2     pacman_0.5.1       withr_2.4.2        magrittr_2.0.1    
+[45] crayon_1.4.1       effectsize_0.4.5   ggtext_0.1.1       estimability_1.3  
+[49] evaluate_0.14      fs_1.5.0           fansi_0.5.0        nlme_3.1-152      
+[53] MASS_7.3-54        xml2_1.3.2         tools_4.1.0        lifecycle_1.0.0   
+[57] matrixStats_0.60.0 stringr_1.4.0      munsell_0.5.0      formattable_0.2.1 
+[61] ggeffects_1.1.1    compiler_4.1.0     rlang_0.4.11       grid_4.1.0        
+[65] nloptr_1.2.2.2     parameters_0.14.0  htmlwidgets_1.5.3  labeling_0.4.2    
+[69] rmarkdown_2.10     boot_1.3-28        gtable_0.3.0       sjstats_0.18.1    
+[73] DBI_1.1.1          markdown_1.1       sjmisc_2.8.7       R6_2.5.1          
+[77] gridExtra_2.3      knitr_1.33         dplyr_1.0.7        performance_0.7.3 
+[81] utf8_1.2.2         rprojroot_2.0.2    insight_0.14.3     stringi_1.7.3     
+[85] Rcpp_1.0.7         vctrs_0.3.8        tidyselect_1.1.1   xfun_0.25         
+[89] coda_0.19-4       </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
