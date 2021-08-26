@@ -30,4 +30,5 @@ wflow_publish('analysis/VE_nomogram.Rmd',
 
 
 
-wflow_use_github("duperrex")
+
+wflow_git_push()
