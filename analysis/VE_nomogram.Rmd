@@ -1,0 +1,339 @@
+---
+title: "COVID-19 - VD - Vaccine efficiency/effectiveness - nomogram"
+author: "olivier.duperrex@unisante.ch"
+date: "version 2021-08-26"
+output:
+  html_document:
+  df_print: paged
+fig_caption: yes
+toc: no
+editor_options:
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+---
+
+*TODO : add comments*
+
+# Context
+
+-   In real life public health, we need to understand if the vaccination
+    is helping to control the COVID-19, or if we need to investigate
+    further.
+
+-   WHO discourages the use of the case-population method ('screening')
+    to evaluate the vaccine effectiveness in this context, but states
+    that it is appropriate "if there is a need for more rigorous
+    investigation".[@who2021] - For details of strength and weakness,
+    please refer to Table 1 of the document
+
+```{r table_last_imports, echo = FALSE, fig.cap = "WHO. Evaluation of COVID-19 vaccine effectiveness. 2021", out.width = '80%', include = TRUE}
+
+## https://stackoverflow.com/questions/25166624/insert-picture-table-in-r-markdown
+knitr::include_graphics(
+  here::here('images', 'vaccine_surveillance_WHO_2021_en.png')
+  )
+
+```
+
+# Aim
+
+-   Recreate the vaccine efficacy (VE) nomogram from Orenstein 1985
+    paper [@orenstein1985]
+
+-   Add some values to quickly check where the current vaccine
+    effectiveness is
+
+-   Calculate vaccine effectiveness approximation using the Farrington
+    method [@farrington1993]
+
+# Setting up the scene
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, comment = NA, include = TRUE, fig.width = 7, fig.height = 7)
+# avoid scientific notation
+options(scipen=999)
+
+
+## you are here -----------------------------------------------------
+# rm(list = ls())
+here::here()
+
+```
+
+## Select language for graph labels
+
+```{r language}
+
+# language_chosen <- "en"
+language_chosen <- "fr"
+
+if (language_chosen == 'fr') {
+  ## labels fr ---------------------------------
+  lab_y <- "PCV = proportion des cas vaccinés"
+  lab_x <- "PPV = proportion de la population vaccinée"
+  title <- "Approximation rapide de l'efficacité vaccinale réelle (VE)"
+  subtitle <- "Evaluation rapide / cas-population / Orenstein et Farrington"
+  lab_VE <- "Efficacité vaccinale"
+} else {
+
+## labels en ---------------------------------
+lab_y <- "PCV = proportion of cases vaccinated"
+lab_x <-  "PPV = proportion of population vaccinated"
+title <- "Rapid assesment of vaccine effectivenes (VE)"
+subtitle <- "Screening / case-population / Orenstein and Farrington method"
+lab_VE <- "Vaccine efficacy"
+}
+
+```
+
+## The equations
+
+```{r equations}
+
+VE_equation <- "VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))"
+PCV_equation <- "PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))"
+
+# caption_table : will be used as caption
+caption_table <- VE_equation
+```
+
+## Load libraries
+
+```{r load libraries}
+pacman::p_load(
+  data.table,
+  ggplot2,
+  ggpmisc,
+  ggrepel,
+  scales
+)
+```
+
+## Setup plots and tables
+
+```{r setup plots and tables}
+## themes and title for plots ---------------------------------------
+theme_set(sjPlot::theme_sjplot2(base_size = 10))
+theme_update(
+  legend.title = element_blank(),
+  legend.position = "right"
+)
+
+## Prepare some elements for plots ----------------------------------
+# out_png4ppt : output folder for png ---
+# needs to be modified according to your own project structure
+out_png4ppt <- here::here('output', 'png4ppt') 
+
+# if(!fs::dir_exists(out_png4ppt)){
+#   fs::dir_create(out_png4ppt)
+# }
+
+```
+
+# Prepare the nomogram
+
+```{r nomogram prep}
+## create a list of VE ----------------------------------------------
+## selecting only 3 for clarity
+VE_list <- c(0.5, 0.85, 0.95)
+
+## create the list for PPV ------------------------------------------
+PPV <- seq(0, 1, 0.01)
+
+## create a data.table with combined values -------------------------
+dt_1 <- setDT(merge(PPV, VE_list))
+
+## rename columns ---------------------------------------------------
+setnames(dt_1, c('x', 'y'), c('PPV', 'VE'))
+
+## calculate the PCV -----------------------------------------------
+dt_1[, PCV := (PPV - (PPV * VE)) / (1 - (PPV * VE))]
+
+head(dt_1)
+tail(dt_1)
+```
+
+```{r p1}
+## p1 - plot w nomogram ---------------------------------------------
+## saved as p0_VE_nomogram.png
+(p1 <- ggplot(dt_1,
+              aes(PPV, PCV, group = VE,
+                  label = ifelse(PPV == 0.8, percent(VE), ""))) +
+    geom_line() +
+    labs(
+      title = title,
+      subtitle = subtitle,
+      x = lab_x,
+      y = lab_y,
+      caption = caption_table
+    ) +
+    scale_x_continuous(n.breaks = 10) +
+    scale_y_continuous(n.breaks = 10) +
+    ggrepel::geom_text_repel(nudge_y = 0.02) +
+    annotate('text', x = 0.77, y = 0.8, label = "VE") +
+
+    theme(plot.subtitle = ggtext::element_markdown())
+    )
+
+
+
+ggsave("p0_VE_nomogram.png", path = out_png4ppt)
+```
+
+# Create some examples
+
+```{r tables}
+## example tables  --------------------------------------------------
+(t1_PPV50 <-
+   dt_1[PPV == 0.5,][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+
+(t2_PPV40 <-
+    dt_1[PPV == 0.4, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+
+(t3_PPV80 <-
+    dt_1[PPV == 0.8, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+
+```
+
+## PPV 50%
+
+```{r p1_ppv50}
+
+## p0_1_VE_nomogram_PPV_50.png ------------------------------------------
+p1_ppv50 <- p1 + annotate('table', x = 0.2, y = 0.89, label = list(t1_PPV50))
+ggsave("p0_1_VE_nomogram_PPV_50_no_data.png", path = out_png4ppt)
+
+## manual update 
+ppv_vd_all <- 0.485
+pcv_vd_all <- 0.023
+
+
+
+ve_vd_all <- formattable::percent(1 - (pcv_vd_all / (1 - pcv_vd_all)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+
+label_vd_all <-
+  paste0("PPV : ",
+         ppv_vd_all,
+         " - PCV : ",
+         pcv_vd_all,
+         " => VE : ",
+         ve_vd_all)
+
+## add an hypothetical value
+pcv_hypothetical <- 0.1
+
+ve_hypothetical <- formattable::percent(1 - (pcv_hypothetical / (1 - pcv_hypothetical)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+
+label_hypothetical <-
+  paste0("PPV : ",
+         ppv_vd_all,
+         " - PCV : ",
+         pcv_hypothetical,
+         " => VE : ",
+         ve_hypothetical)
+
+p1_ppv50 +
+  geom_point(x = ppv_vd_all,
+             y = pcv_vd_all,
+             col = 'darkgreen',
+             size = 4) +
+  annotate(
+    'text',
+    x = ppv_vd_all,
+    y = pcv_vd_all,
+    hjust = -0.1,
+    col = 'darkgreen',
+    label = label_vd_all
+  ) +
+  geom_point(x = ppv_vd_all,
+             y = pcv_hypothetical,
+             col = 'red',
+             size = 4) +
+  annotate(
+    'text',
+    x = ppv_vd_all,
+    y = pcv_hypothetical,
+    hjust = -0.1,
+    col = 'red',
+    label = label_hypothetical
+  )
+
+ggsave("p0_1_VE_nomogram_PPV_50_data_VD_global.png", path = out_png4ppt)
+```
+
+## PPV 40%
+
+```{r p1_ppv40}
+## manual update 
+ppv_vd_all <- 0.485
+pcv_vd_all <- 0.023
+
+
+
+ve_vd_all <- formattable::percent(1 - (pcv_vd_all / (1 - pcv_vd_all)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+
+label_vd_all <-
+  paste0("PPV : ",
+         ppv_vd_all,
+         " - PCV : ",
+         pcv_vd_all,
+         " - VE : ",
+         ve_vd_all)
+
+p1 + annotate('table',
+              x = 0.2,
+              y = 0.89,
+              label = list(t2_PPV40)) +
+  geom_point(x = ppv_vd_all,
+             y = pcv_vd_all,
+             col = 'darkgreen',
+             size = 4
+             ) +
+  annotate('text',
+    x = ppv_vd_all,
+    y = pcv_vd_all,
+    hjust = - 0.1,
+    col = 'darkgreen',
+    label = label_vd_all)
+
+ggsave("p0_2_VE_nomogram_PPV_40.png", path = out_png4ppt)
+```
+
+## PPV 80%
+
+```{r p1_ppv80}
+
+ppv_vd_seniors <- 0.785
+pcv_vd_seniors <- 0.115
+
+ve_vd_seniors <- formattable::percent(1 - (pcv_vd_seniors / (1 - pcv_vd_seniors)) / (ppv_vd_seniors / (1 - ppv_vd_seniors)), 1)
+
+label_vd_seniors <-
+  paste0("PPV : ",
+         ppv_vd_seniors,
+         " - PCV : ",
+         pcv_vd_seniors,
+         " - VE : ",
+         ve_vd_seniors)
+
+p1 + annotate('table',
+              x = 0.2,
+              y = 0.89,
+              label = list(t3_PPV80)) +
+  geom_point(x = ppv_vd_seniors,
+             y = pcv_vd_seniors,
+             col = 'purple',
+             size = 4) +
+  annotate('text',
+           x = ppv_vd_seniors,
+           y = pcv_vd_seniors,
+           vjust = 3,
+           col = 'purple',
+           label = label_vd_seniors)
+
+ggsave("p0_3_VE_nomogram_PPV_80.png", path = out_png4ppt)
+```
+
+# References
