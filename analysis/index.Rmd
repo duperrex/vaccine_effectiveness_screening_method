@@ -8,4 +8,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Vaccine effectiveness by screening method
+
+- [The nomogram : quick and easy](VE_nomogram.html)
