@@ -36,6 +36,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -361,7 +363,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -398,7 +406,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-08-26
+<strong>Last updated:</strong> 2021-08-27
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -489,16 +497,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstronge5ffc18"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> e5ffc18 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtreea7d4bdc2c68d19d46c54d4c49554869c65ddd436targetblanka7d4bdca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/a7d4bdc2c68d19d46c54d4c49554869c65ddd436" target="_blank">a7d4bdc</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstronge5ffc18" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtreea7d4bdc2c68d19d46c54d4c49554869c65ddd436targetblanka7d4bdca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version e5ffc18. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/a7d4bdc2c68d19d46c54d4c49554869c65ddd436" target="_blank">a7d4bdc</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -509,13 +517,16 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  0_run_ME.R
-    Untracked:  analysis/references.bib
-    Untracked:  images/
-    Untracked:  output/png4ppt/
+    Untracked:  code/00_functions.R
 
 Unstaged changes:
-    Modified:   _workflowr.yml
+    Modified:   0_run_ME.R
+    Modified:   analysis/references.bib
+    Modified:   output/png4ppt/p0_1_VE_nomogram_PPV_50_data_VD_global.png
+    Modified:   output/png4ppt/p0_1_VE_nomogram_PPV_50_no_data.png
+    Modified:   output/png4ppt/p0_2_VE_nomogram_PPV_40.png
+    Modified:   output/png4ppt/p0_3_VE_nomogram_PPV_80.png
+    Modified:   output/png4ppt/p0_VE_nomogram.png
 
 </code></pre>
 <p>
@@ -559,7 +570,41 @@ Message
 Rmd
 </td>
 <td>
-e5ffc18
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/a7d4bdc2c68d19d46c54d4c49554869c65ddd436/analysis/VE_nomogram.Rmd" target="_blank">a7d4bdc</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-08-27
+</td>
+<td>
+Initial commit
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/8fb4a90f75db3061d31eab804f86293784a94106/docs/VE_nomogram.html" target="_blank">8fb4a90</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-08-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/e5ffc1812ee5c683d2cc492370381147edc31898/analysis/VE_nomogram.Rmd" target="_blank">e5ffc18</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -584,6 +629,7 @@ Initial commit
 <ul>
 <li><p>In real life public health, we need to understand if the vaccination is helping to control the COVID-19, or if we need to investigate further.</p></li>
 <li><p>WHO discourages the use of the case-population method (‘screening’) to evaluate the vaccine effectiveness in this context, but states that it is appropriate “if there is a need for more rigorous investigation.”<span class="citation">(WHO 2021)</span> - For details of strength and weakness, please refer to Table 1 of the document</p></li>
+<li><p>The ECDC has a very useful ppt. <span class="citation">(ECDC 2018)</span></p></li>
 </ul>
 <div class="figure" style="text-align: center">
 <img src="C:/Users/ol8094/Documents/_analyses/vaccine_effectiveness_screening_method/images/vaccine_surveillance_WHO_2021_en.png" alt="WHO. Evaluation of COVID-19 vaccine effectiveness. 2021" width="80%" />
@@ -597,7 +643,7 @@ WHO. Evaluation of COVID-19 vaccine effectiveness. 2021
 <ul>
 <li><p>Recreate the vaccine efficacy (VE) nomogram from Orenstein 1985 paper <span class="citation">(Orenstein et al. 1985)</span></p></li>
 <li><p>Add some values to quickly check where the current vaccine effectiveness is</p></li>
-<li><p>Calculate vaccine effectiveness approximation using the Farrington method <span class="citation">(Farrington 1993)</span></p></li>
+<li><p>Calculate vaccine effectiveness approximation using the Farrington method <span class="citation">(Farrington 1993a)</span></p></li>
 </ul>
 </div>
 <div id="setting-up-the-scene" class="section level1">
@@ -614,12 +660,12 @@ here::here()</code></pre>
 <div id="select-language-for-graph-labels" class="section level2">
 <h2>Select language for graph labels</h2>
 <pre class="r"><code>
-# language_chosen &lt;- &quot;en&quot;
-language_chosen &lt;- &quot;fr&quot;
+language_chosen &lt;- &quot;en&quot;
+# language_chosen &lt;- &quot;fr&quot;
 
 if (language_chosen == &#39;fr&#39;) {
   ## labels fr ---------------------------------
-  lab_y &lt;- &quot;PCV = proportion des cas vaccinés&quot;
+  lab_y &lt;- &quot;PCV attendus = proportion des cas vaccinés attendus&quot;
   lab_x &lt;- &quot;PPV = proportion de la population vaccinée&quot;
   title &lt;- &quot;Approximation rapide de l&#39;efficacité vaccinale réelle (VE)&quot;
   subtitle &lt;- &quot;Evaluation rapide / cas-population / Orenstein et Farrington&quot;
@@ -627,7 +673,7 @@ if (language_chosen == &#39;fr&#39;) {
 } else {
 
 ## labels en ---------------------------------
-lab_y &lt;- &quot;PCV = proportion of cases vaccinated&quot;
+lab_y &lt;- &quot;PCV expected = proportion of cases vaccinated expected&quot;
 lab_x &lt;-  &quot;PPV = proportion of population vaccinated&quot;
 title &lt;- &quot;Rapid assesment of vaccine effectivenes (VE)&quot;
 subtitle &lt;- &quot;Screening / case-population / Orenstein and Farrington method&quot;
@@ -636,6 +682,7 @@ lab_VE &lt;- &quot;Vaccine efficacy&quot;
 </div>
 <div id="the-equations" class="section level2">
 <h2>The equations</h2>
+<p>Look at the references for original formulas. <span class="citation">(Farrington 1993b)</span><span class="citation">(Orenstein et al. 1985)</span></p>
 <pre class="r"><code>
 VE_equation &lt;- &quot;VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))&quot;
 PCV_equation &lt;- &quot;PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))&quot;
@@ -769,17 +816,30 @@ Saving 7 x 7 in image
 ppv_vd_all &lt;- 0.485
 pcv_vd_all &lt;- 0.023
 
+ppv_so_all &lt;- 0.522
+pcv_so_all &lt;- 0.031
+
 
 
 ve_vd_all &lt;- formattable::percent(1 - (pcv_vd_all / (1 - pcv_vd_all)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+ve_so_all &lt;- formattable::percent(1 - (pcv_so_all / (1 - pcv_so_all)) / (ppv_so_all / (1 - ppv_so_all)), 1)
+
 
 label_vd_all &lt;-
-  paste0(&quot;PPV : &quot;,
+  paste0(&quot;VD -- PPV : &quot;,
          ppv_vd_all,
          &quot; - PCV : &quot;,
          pcv_vd_all,
          &quot; =&gt; VE : &quot;,
          ve_vd_all)
+
+label_so_all &lt;-
+  paste0(&quot;SO -- PPV : &quot;,
+         ppv_so_all,
+         &quot; - PCV : &quot;,
+         pcv_so_all,
+         &quot; =&gt; VE : &quot;,
+         ve_so_all)
 
 ## add an hypothetical value
 pcv_hypothetical &lt;- 0.1
@@ -803,24 +863,37 @@ p1_ppv50 +
     &#39;text&#39;,
     x = ppv_vd_all,
     y = pcv_vd_all,
-    hjust = -0.1,
+    vjust = 2,
     col = &#39;darkgreen&#39;,
     label = label_vd_all
   ) +
-  geom_point(x = ppv_vd_all,
-             y = pcv_hypothetical,
-             col = &#39;red&#39;,
+  geom_point(x = ppv_so_all,
+             y = pcv_so_all,
+             col = &#39;blue&#39;,
              size = 4) +
   annotate(
     &#39;text&#39;,
-    x = ppv_vd_all,
-    y = pcv_hypothetical,
+    x = ppv_so_all,
+    y = pcv_so_all,
     hjust = -0.1,
-    col = &#39;red&#39;,
-    label = label_hypothetical
-  )</code></pre>
+    col = &#39;blue&#39;,
+    label = label_so_all
+  ) </code></pre>
 <p><img src="figure/VE_nomogram.Rmd/p1_ppv50-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>
+<pre class="r"><code># +
+#   geom_point(x = ppv_vd_all,
+#              y = pcv_hypothetical,
+#              col = &#39;red&#39;,
+#              size = 4) +
+#   annotate(
+#     &#39;text&#39;,
+#     x = ppv_vd_all,
+#     y = pcv_hypothetical,
+#     hjust = -0.1,
+#     col = &#39;red&#39;,
+#     label = label_hypothetical
+#   )
+
 ggsave(&quot;p0_1_VE_nomogram_PPV_50_data_VD_global.png&quot;, path = out_png4ppt)
 Saving 7 x 7 in image</code></pre>
 </div>
@@ -901,8 +974,14 @@ Saving 7 x 7 in image</code></pre>
 <div id="references" class="section level1">
 <h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ecdc2018" class="csl-entry">
+ECDC. 2018. <span>“Training of Trainers in Epidemiology of Vaccine Preventable Diseases - Main Learning Points in Lecture <span>“</span>Applied Epidemiological Research for Vaccine Preventable Diseases: Vaccine Effectiveness<span>”</span>.”</span> <a href="https://eva.ecdc.europa.eu/mod/resource/view.php?id=5149">https://eva.ecdc.europa.eu/mod/resource/view.php?id=5149</a>.
+</div>
 <div id="ref-farrington1993" class="csl-entry">
-Farrington, CP. 1993. <span>“Estimation of Vaccine Effectiveness Using the Screening Method.”</span> <em>International Journal of Epidemiology</em> 22 (4): 742–46. <a href="https://doi.org/10.1093/ije/22.4.742">https://doi.org/10.1093/ije/22.4.742</a>.
+Farrington, CP. 1993a. <span>“Estimation of Vaccine Effectiveness Using the Screening Method.”</span> <em>International Journal of Epidemiology</em> 22 (4): 742–46. <a href="https://doi.org/10.1093/ije/22.4.742">https://doi.org/10.1093/ije/22.4.742</a>.
+</div>
+<div id="ref-farrington1993a" class="csl-entry">
+———. 1993b. <span>“Estimation of Vaccine Effectiveness Using the Screening Method.”</span> <em>International Journal of Epidemiology</em> 22 (4): 742–46. <a href="https://doi.org/10.1093/ije/22.4.742">https://doi.org/10.1093/ije/22.4.742</a>.
 </div>
 <div id="ref-orenstein1985" class="csl-entry">
 Orenstein, W. A., R. H. Bernier, T. J. Dondero, A. R. Hinman, J. S. Marks, K. J. Bart, and B. Sirotkin. 1985. <span>“Field Evaluation of Vaccine Efficacy.”</span> <em>Bulletin of the World Health Organization</em> 63 (6): 1055–68. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2536484/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2536484/</a>.
