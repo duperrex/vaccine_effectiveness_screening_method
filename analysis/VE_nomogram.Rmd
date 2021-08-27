@@ -28,6 +28,8 @@ bibliography: references.bib
     investigation".[@who2021] - For details of strength and weakness,
     please refer to Table 1 of the document
 
+-   The ECDC has a very useful ppt. [@ecdc2018]
+
 ```{r table_last_imports, echo = FALSE, fig.cap = "WHO. Evaluation of COVID-19 vaccine effectiveness. 2021", out.width = '80%', include = TRUE}
 
 ## https://stackoverflow.com/questions/25166624/insert-picture-table-in-r-markdown
@@ -66,12 +68,12 @@ here::here()
 
 ```{r language}
 
-# language_chosen <- "en"
-language_chosen <- "fr"
+language_chosen <- "en"
+# language_chosen <- "fr"
 
 if (language_chosen == 'fr') {
   ## labels fr ---------------------------------
-  lab_y <- "PCV = proportion des cas vaccinés"
+  lab_y <- "PCV attendus = proportion des cas vaccinés attendus"
   lab_x <- "PPV = proportion de la population vaccinée"
   title <- "Approximation rapide de l'efficacité vaccinale réelle (VE)"
   subtitle <- "Evaluation rapide / cas-population / Orenstein et Farrington"
@@ -79,7 +81,7 @@ if (language_chosen == 'fr') {
 } else {
 
 ## labels en ---------------------------------
-lab_y <- "PCV = proportion of cases vaccinated"
+lab_y <- "PCV expected = proportion of cases vaccinated expected"
 lab_x <-  "PPV = proportion of population vaccinated"
 title <- "Rapid assesment of vaccine effectivenes (VE)"
 subtitle <- "Screening / case-population / Orenstein and Farrington method"
@@ -89,6 +91,9 @@ lab_VE <- "Vaccine efficacy"
 ```
 
 ## The equations
+
+Look at the references for original formulas.
+[@farrington1993a][@orenstein1985]
 
 ```{r equations}
 
@@ -155,6 +160,7 @@ head(dt_1)
 tail(dt_1)
 ```
 
+
 ```{r p1}
 ## p1 - plot w nomogram ---------------------------------------------
 ## saved as p0_VE_nomogram.png
@@ -209,17 +215,30 @@ ggsave("p0_1_VE_nomogram_PPV_50_no_data.png", path = out_png4ppt)
 ppv_vd_all <- 0.485
 pcv_vd_all <- 0.023
 
+ppv_so_all <- 0.522
+pcv_so_all <- 0.031
+
 
 
 ve_vd_all <- formattable::percent(1 - (pcv_vd_all / (1 - pcv_vd_all)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
+ve_so_all <- formattable::percent(1 - (pcv_so_all / (1 - pcv_so_all)) / (ppv_so_all / (1 - ppv_so_all)), 1)
+
 
 label_vd_all <-
-  paste0("PPV : ",
+  paste0("VD -- PPV : ",
          ppv_vd_all,
          " - PCV : ",
          pcv_vd_all,
          " => VE : ",
          ve_vd_all)
+
+label_so_all <-
+  paste0("SO -- PPV : ",
+         ppv_so_all,
+         " - PCV : ",
+         pcv_so_all,
+         " => VE : ",
+         ve_so_all)
 
 ## add an hypothetical value
 pcv_hypothetical <- 0.1
@@ -243,22 +262,35 @@ p1_ppv50 +
     'text',
     x = ppv_vd_all,
     y = pcv_vd_all,
-    hjust = -0.1,
+    vjust = 2,
     col = 'darkgreen',
     label = label_vd_all
   ) +
-  geom_point(x = ppv_vd_all,
-             y = pcv_hypothetical,
-             col = 'red',
+  geom_point(x = ppv_so_all,
+             y = pcv_so_all,
+             col = 'blue',
              size = 4) +
   annotate(
     'text',
-    x = ppv_vd_all,
-    y = pcv_hypothetical,
+    x = ppv_so_all,
+    y = pcv_so_all,
     hjust = -0.1,
-    col = 'red',
-    label = label_hypothetical
-  )
+    col = 'blue',
+    label = label_so_all
+  ) 
+# +
+#   geom_point(x = ppv_vd_all,
+#              y = pcv_hypothetical,
+#              col = 'red',
+#              size = 4) +
+#   annotate(
+#     'text',
+#     x = ppv_vd_all,
+#     y = pcv_hypothetical,
+#     hjust = -0.1,
+#     col = 'red',
+#     label = label_hypothetical
+#   )
 
 ggsave("p0_1_VE_nomogram_PPV_50_data_VD_global.png", path = out_png4ppt)
 ```
