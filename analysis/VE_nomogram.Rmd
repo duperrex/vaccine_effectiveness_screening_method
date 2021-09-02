@@ -211,17 +211,15 @@ ggsave("p0_VE_nomogram.png", path = out_png4ppt)
 p1_ppv50 <- p1 + annotate('table', x = 0.2, y = 0.89, label = list(t1_PPV50))
 ggsave("p0_1_VE_nomogram_PPV_50_no_data.png", path = out_png4ppt)
 
-## manual update 
+## manual update VD ----
 ppv_vd_all <- 0.485
 pcv_vd_all <- 0.023
 
-ppv_so_all <- 0.522
-pcv_so_all <- 0.031
+
 
 
 
 ve_vd_all <- formattable::percent(1 - (pcv_vd_all / (1 - pcv_vd_all)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
-ve_so_all <- formattable::percent(1 - (pcv_so_all / (1 - pcv_so_all)) / (ppv_so_all / (1 - ppv_so_all)), 1)
 
 
 label_vd_all <-
@@ -232,6 +230,14 @@ label_vd_all <-
          " => VE : ",
          ve_vd_all)
 
+
+## manual update SO ----
+ppv_so_all <- 0.522
+pcv_so_all <- 0.031
+
+ve_so_all <- formattable::percent(1 - (pcv_so_all / (1 - pcv_so_all)) / (ppv_so_all / (1 - ppv_so_all)), 1)
+
+
 label_so_all <-
   paste0("SO -- PPV : ",
          ppv_so_all,
@@ -240,7 +246,7 @@ label_so_all <-
          " => VE : ",
          ve_so_all)
 
-## add an hypothetical value
+## add an hypothetical value ----
 pcv_hypothetical <- 0.1
 
 ve_hypothetical <- formattable::percent(1 - (pcv_hypothetical / (1 - pcv_hypothetical)) / (ppv_vd_all / (1 - ppv_vd_all)), 1)
@@ -253,7 +259,10 @@ label_hypothetical <-
          " => VE : ",
          ve_hypothetical)
 
+
+## add points and labels to the plot ----
 p1_ppv50 +
+  # VD
   geom_point(x = ppv_vd_all,
              y = pcv_vd_all,
              col = 'darkgreen',
@@ -266,31 +275,21 @@ p1_ppv50 +
     col = 'darkgreen',
     label = label_vd_all
   ) +
-  geom_point(x = ppv_so_all,
-             y = pcv_so_all,
-             col = 'blue',
+  # hypothetical
+  geom_point(x = ppv_vd_all,
+             y = pcv_hypothetical,
+             col = 'red',
              size = 4) +
   annotate(
     'text',
-    x = ppv_so_all,
-    y = pcv_so_all,
+    x = ppv_vd_all,
+    y = pcv_hypothetical,
     hjust = -0.1,
-    col = 'blue',
-    label = label_so_all
-  ) 
-# +
-#   geom_point(x = ppv_vd_all,
-#              y = pcv_hypothetical,
-#              col = 'red',
-#              size = 4) +
-#   annotate(
-#     'text',
-#     x = ppv_vd_all,
-#     y = pcv_hypothetical,
-#     hjust = -0.1,
-#     col = 'red',
-#     label = label_hypothetical
-#   )
+    col = 'red',
+    label = label_hypothetical
+  )
+
+
 
 ggsave("p0_1_VE_nomogram_PPV_50_data_VD_global.png", path = out_png4ppt)
 ```
