@@ -4,7 +4,25 @@ This project aims to share my understanding and exploration of the screening / c
 
 The code uses a data.table approach because the original datasets were voluminous. It will hopefully be helpful to others. 
 
-The output is a website created with [workflowr][], that is not yet published. If you download the repo, you'll be able to visualise the website by clicking on the [index.html](index.html) in the docs folder.
+The output is a website created with [workflowr][], that is not yet published. 
+
+If you download the repo, you'll be able to visualise the website by clicking on the [index.html](index.html) in the docs folder. The plots produced are available in _the output > png4ppt_ folder .
+
+
+Structure and content
+
+- analysis : .Rmd files that will produce the website
+
+- code : .R files 
+
+- data : original data files
+
+- docs : html files of the website
+
+- images : external images
+
+- output : contains subfolders with output produced
+
 
 Please feel free to comment and give me some feedback.
 
