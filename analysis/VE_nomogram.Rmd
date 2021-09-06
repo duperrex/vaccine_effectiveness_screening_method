@@ -82,7 +82,7 @@ if (language_chosen == 'fr') {
   lab_VE <- "Efficacité vaccinale"
 
     label_annotation_cases_vacc_known <- gt::md("**Hypothèses**   
-  Cas vaccinés connus : 1000  
+  Cas vaccinés connus : 1'000  
   Cas totaux : 30'000  
   Si la part connue   
   des cas vaccinés     
@@ -99,7 +99,7 @@ subtitle <- "Screening / case-population / Orenstein and Farrington method"
 lab_VE <- "Vaccine efficacy"
 label_short <-  c("All", "Half", "One in 4", "One in 10") # known vaccinated cases
 label_annotation_cases_vacc_known <- gt::md("**Hypothesis**   
-  Known vaccinated cases: 1000  
+  Known vaccinated cases: 1'000  
   Total cases: 30'000  
   If the known part    
   of vaccinated cases    
@@ -273,7 +273,6 @@ ggsave("p0_1_VE_nomogram_PPV_50_data_global.png", path = out_png4ppt)
 
 ### with hypothesis
 Persons who are fully vaccinated seem less likely to go for a test even with a few symptoms that are COVID-19 compatible.
-Here we will make some assumptions.
 
 ```{r p1_ppv50_b}
 
@@ -313,6 +312,14 @@ dt_2[,label_hypothetical :=
          ve_hypothetical)]
 dt_2[,label_short := label_short][]
 
+name_xlsx <-
+  here::here(
+    'output',
+    'xlsx',
+    't_0_1_VE_nomogram_PPV_50_data_global_hypothetical.xlsx'
+  )
+
+writexl::write_xlsx(dt_2, name_xlsx)
 
 ## add points and labels to the plot ----
 p1 +
@@ -343,6 +350,15 @@ p1 +
 
 ggsave("p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png", path = out_png4ppt)
 ```
+
+For a vaccination coverage of `r ppv_all`, a number of total cases of `r total_cases_N` and `r cases_vacc_N` vaccinated, this exploration shows that if we know :
+
+* all or half of the cases, the vaccine effectiveness is close the vaccine efficacy 
+
+* only one vaccinated cases in 4, the vaccine effectiveness is lower but acceptable
+
+* only one vaccinated cases in 10, the vaccine effectiveness is much lower and is not acceptable
+
 
 
 ## PPV 40%
