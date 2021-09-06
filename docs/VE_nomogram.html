@@ -497,16 +497,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree1e08d2a2e51f24c9cc043d446fc1ab7706872e9atargetblank1e08d2aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/1e08d2a2e51f24c9cc043d446fc1ab7706872e9a" target="_blank">1e08d2a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree26eb3f7b73578d2aa32d6ce1a688c6daa1b240a5targetblank26eb3f7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/26eb3f7b73578d2aa32d6ce1a688c6daa1b240a5" target="_blank">26eb3f7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree1e08d2a2e51f24c9cc043d446fc1ab7706872e9atargetblank1e08d2aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree26eb3f7b73578d2aa32d6ce1a688c6daa1b240a5targetblank26eb3f7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/1e08d2a2e51f24c9cc043d446fc1ab7706872e9a" target="_blank">1e08d2a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/26eb3f7b73578d2aa32d6ce1a688c6daa1b240a5" target="_blank">26eb3f7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -515,6 +515,7 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    output/xlsx/
 
 Untracked files:
     Untracked:  output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global.png
@@ -560,6 +561,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/26eb3f7b73578d2aa32d6ce1a688c6daa1b240a5/analysis/VE_nomogram.Rmd" target="_blank">26eb3f7</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-09-06
+</td>
+<td>
+save xlsx
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/f8e9fdaaeab5dd96ad8db56266e9c399a2e80354/docs/VE_nomogram.html" target="_blank">f8e9fda</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-09-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -720,7 +755,7 @@ if (language_chosen == &#39;fr&#39;) {
   lab_VE &lt;- &quot;Efficacité vaccinale&quot;
 
     label_annotation_cases_vacc_known &lt;- gt::md(&quot;**Hypothèses**   
-  Cas vaccinés connus : 1000  
+  Cas vaccinés connus : 1&#39;000  
   Cas totaux : 30&#39;000  
   Si la part connue   
   des cas vaccinés     
@@ -737,7 +772,7 @@ subtitle &lt;- &quot;Screening / case-population / Orenstein and Farrington meth
 lab_VE &lt;- &quot;Vaccine efficacy&quot;
 label_short &lt;-  c(&quot;All&quot;, &quot;Half&quot;, &quot;One in 4&quot;, &quot;One in 10&quot;) # known vaccinated cases
 label_annotation_cases_vacc_known &lt;- gt::md(&quot;**Hypothesis**   
-  Known vaccinated cases: 1000  
+  Known vaccinated cases: 1&#39;000  
   Total cases: 30&#39;000  
   If the known part    
   of vaccinated cases    
@@ -921,7 +956,7 @@ Saving 7 x 7 in image
 Don&#39;t know how to automatically pick scale for object of type from_markdown. Defaulting to continuous.</code></pre>
 <div id="with-hypothesis" class="section level3">
 <h3>with hypothesis</h3>
-<p>Persons who are fully vaccinated seem less likely to go for a test even with a few symptoms that are COVID-19 compatible. Here we will make some assumptions.</p>
+<p>Persons who are fully vaccinated seem less likely to go for a test even with a few symptoms that are COVID-19 compatible.</p>
 <pre class="r"><code>
 
 ## add an hypothetical value ----
@@ -994,6 +1029,14 @@ dt_2[,label_short := label_short][]
 3: PPV : 50.0% - PCV : 12.1% =&gt; VE : 86.2%    One in 4
 4: PPV : 50.0% - PCV : 25.6% =&gt; VE : 65.5%   One in 10
 
+name_xlsx &lt;-
+  here::here(
+    &#39;output&#39;,
+    &#39;xlsx&#39;,
+    &#39;t_0_1_VE_nomogram_PPV_50_data_global_hypothetical.xlsx&#39;
+  )
+
+writexl::write_xlsx(dt_2, name_xlsx)
 
 ## add points and labels to the plot ----
 p1 +
@@ -1026,6 +1069,12 @@ Warning: Ignoring unknown aesthetics: label</code></pre>
 <pre class="r"><code>
 ggsave(&quot;p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png&quot;, path = out_png4ppt)
 Saving 7 x 7 in image</code></pre>
+<p>For a vaccination coverage of 0.5, a number of total cases of 30000 and 1000 vaccinated, this exploration shows that if we know :</p>
+<ul>
+<li><p>all or half of the cases, the vaccine effectiveness is close the vaccine efficacy</p></li>
+<li><p>only one vaccinated cases in 4, the vaccine effectiveness is lower but acceptable</p></li>
+<li><p>only one vaccinated cases in 10, the vaccine effectiveness is much lower and is not acceptable</p></li>
+</ul>
 </div>
 </div>
 <div id="ppv-40" class="section level2">
@@ -1159,15 +1208,15 @@ loaded via a namespace (and not attached):
 [45] crayon_1.4.1       effectsize_0.4.5   ggtext_0.1.1       estimability_1.3  
 [49] evaluate_0.14      fs_1.5.0           fansi_0.5.0        nlme_3.1-152      
 [53] MASS_7.3-54        xml2_1.3.2         tools_4.1.0        lifecycle_1.0.0   
-[57] matrixStats_0.60.0 stringr_1.4.0      munsell_0.5.0      formattable_0.2.1 
-[61] ggeffects_1.1.1    compiler_4.1.0     rlang_0.4.11       nloptr_1.2.2.2    
-[65] grid_4.1.0         gt_0.3.1           parameters_0.14.0  htmlwidgets_1.5.3 
-[69] labeling_0.4.2     rmarkdown_2.10     boot_1.3-28        gtable_0.3.0      
-[73] sjstats_0.18.1     DBI_1.1.1          markdown_1.1       sjmisc_2.8.7      
-[77] R6_2.5.1           gridExtra_2.3      knitr_1.33         dplyr_1.0.7       
-[81] performance_0.7.3  utf8_1.2.2         rprojroot_2.0.2    insight_0.14.3    
-[85] stringi_1.7.3      Rcpp_1.0.7         vctrs_0.3.8        tidyselect_1.1.1  
-[89] xfun_0.25          coda_0.19-4       </code></pre>
+[57] matrixStats_0.60.0 stringr_1.4.0      munsell_0.5.0      writexl_1.4.0     
+[61] formattable_0.2.1  ggeffects_1.1.1    compiler_4.1.0     rlang_0.4.11      
+[65] nloptr_1.2.2.2     grid_4.1.0         gt_0.3.1           parameters_0.14.0 
+[69] htmlwidgets_1.5.3  labeling_0.4.2     rmarkdown_2.10     boot_1.3-28       
+[73] gtable_0.3.0       sjstats_0.18.1     DBI_1.1.1          markdown_1.1      
+[77] sjmisc_2.8.7       R6_2.5.1           gridExtra_2.3      knitr_1.33        
+[81] dplyr_1.0.7        performance_0.7.3  utf8_1.2.2         rprojroot_2.0.2   
+[85] insight_0.14.3     stringi_1.7.3      Rcpp_1.0.7         vctrs_0.3.8       
+[89] tidyselect_1.1.1   xfun_0.25          coda_0.19-4       </code></pre>
 </div>
 </div>
 
