@@ -8,9 +8,19 @@
 here::here()
 
 
+## create folders if they don't exists ------------------------------
+
+create_folder <- function(x){
+  if (!fs::dir_exists(x))
+  fs::dir_create(x)
+}
 
 
-# wflow_rename_proj("vaccine_effectiveness_screening_method")
+## do only once to create each folder --
+# create_folder(here::here('output'))
+# create_folder(here::here('output', 'png4ppt'))
+# create_folder(here::here('output', 'xlsx'))
+
 
 ## workflowr manages the website ------------------------------------
 ## when you install it the first time in RStudio and you restart RStudio, it should automatically be uploaded
@@ -34,10 +44,4 @@ wflow_publish('analysis/license.Rmd',
 wflow_publish('README.md', 'Update text')
 
 wflow_publish('analysis/VE_nomogram.Rmd',
-              'Add SO and refs')
-
-
-
-
-wflow_git_push() ## need to use PAT not password from 2021-08-13
-duper
+              'save xlsx')
