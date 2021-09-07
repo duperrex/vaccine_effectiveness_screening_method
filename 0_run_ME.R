@@ -18,8 +18,10 @@ create_folder <- function(x){
 
 ## do only once to create each folder --
 # create_folder(here::here('output'))
+
 # create_folder(here::here('output', 'png4ppt'))
 # create_folder(here::here('output', 'xlsx'))
+# create_folder(here::here('output', 'RData'))
 
 
 ## workflowr manages the website ------------------------------------
@@ -43,5 +45,12 @@ wflow_publish('analysis/license.Rmd',
 
 wflow_publish('README.md', 'Update text')
 
-wflow_publish('analysis/VE_nomogram.Rmd',
+wflow_publish('analysis/01_VE_nomogram.Rmd',
               'Update text')
+
+## to rename files
+# wflow_rename(
+#   here::here('analysis', 'VE_nomogram.Rmd'),
+#   here::here('analysis', '01_VE_nomogram.Rmd')
+#   )
+
