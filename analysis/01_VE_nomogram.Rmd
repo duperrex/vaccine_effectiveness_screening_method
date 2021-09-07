@@ -77,33 +77,40 @@ if (language_chosen == 'fr') {
   ## labels fr ---------------------------------
   lab_y <- "PCV attendus = proportion des cas vaccinés attendus"
   lab_x <- "PPV = proportion de la population vaccinée"
-  title <- "Approximation rapide de l'efficacité vaccinale réelle (VE)"
-  subtitle <- "Evaluation rapide / cas-population / Orenstein et Farrington"
+  title <-
+    "Approximation rapide de l'efficacité vaccinale réelle (VE)"
+  subtitle <-
+    "Evaluation rapide / cas-population / Orenstein et Farrington"
   lab_VE <- "Efficacité vaccinale"
-
-    label_annotation_cases_vacc_known <- gt::md("**Hypothèses**   
+  label_short <-
+    c("Tous", "Moitié", "Un sur 4", "Un sur 10") # known vaccinated cases
+  label_annotation_cases_vacc_known <- gt::md(
+    "**Hypothèses**  
   Cas vaccinés connus : 1'000  
   Cas totaux : 30'000  
-  Si la part connue   
-  des cas vaccinés     
-  est de ...")
-  label_short <-  c("Tous", "Moitié", "Un sur 4", "Un sur 10") # known vaccinated cases
+  Si la part connue  
+  des cas vaccinés  
+  est de ..."
+  )
   
 } else {
-
-## labels en ---------------------------------
-lab_y <- "PCV expected = proportion of cases vaccinated expected"
-lab_x <-  "PPV = proportion of population vaccinated"
-title <- "Rapid assesment of vaccine effectivenes (VE)"
-subtitle <- "Screening / case-population / Orenstein and Farrington method"
-lab_VE <- "Vaccine efficacy"
-label_short <-  c("All", "Half", "One in 4", "One in 10") # known vaccinated cases
-label_annotation_cases_vacc_known <- gt::md("**Hypothesis**   
+  ## labels en ---------------------------------
+  lab_y <- "PCV expected = proportion of cases vaccinated expected"
+  lab_x <-  "PPV = proportion of population vaccinated"
+  title <- "Rapid assesment of vaccine effectivenes (VE)"
+  subtitle <-
+    "Screening / case-population / Orenstein and Farrington method"
+  lab_VE <- "Vaccine efficacy"
+  label_short <-
+    c("All", "Half", "One in 4", "One in 10") # known vaccinated cases
+  label_annotation_cases_vacc_known <- gt::md(
+    "**Hypothesis**  
   Known vaccinated cases: 1'000  
   Total cases: 30'000  
-  If the known part    
-  of vaccinated cases    
-  is ...")
+  If the known part  
+  of vaccinated cases  
+  is ..."
+  )
 }
 
 ```
@@ -148,10 +155,6 @@ theme_update(
 # out_png4ppt : output folder for png ---
 # needs to be modified according to your own project structure
 out_png4ppt <- here::here('output', 'png4ppt') 
-
-# if(!fs::dir_exists(out_png4ppt)){
-#   fs::dir_create(out_png4ppt)
-# }
 
 ```
 
@@ -250,7 +253,6 @@ label_all <-
 
 ## add points and labels to the plot ----
 p1_ppv50_a <- p1_ppv50 +
-geom_text_repel()+
   geom_point(x = ppv_all,
              y = pcv_all,
              col = 'darkgreen',
@@ -343,12 +345,14 @@ p1 +
   ggtext::geom_textbox(
     x = 0.4,
     y = 0.7,
-    width = grid::unit(0.25, "npc"),
+    width = grid::unit(0.4, "npc"),
     # 25% of plot panel width
     label = label_annotation_cases_vacc_known
   )
 
 ggsave("p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png", path = out_png4ppt)
+
+## NOTE : the ggtext::geom_textbox() gives a nice output with md format ... but it is very slow!
 ```
 
 For a vaccination coverage of `r ppv_all`, a number of total cases of `r total_cases_N` and `r cases_vacc_N` vaccinated, this exploration shows that if we know :
