@@ -44,4 +44,4 @@ wflow_publish('analysis/license.Rmd',
 wflow_publish('README.md', 'Update text')
 
 wflow_publish('analysis/VE_nomogram.Rmd',
-              'save xlsx')
+              'Update text')
