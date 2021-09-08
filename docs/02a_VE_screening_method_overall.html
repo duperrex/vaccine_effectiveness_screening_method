@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="olivier.duperrex@unisante.ch" />
+
+
+<title>COVID-19 - Vaccine efficiency/effectiveness - screening method - overall</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">vaccine_effectiveness_screening_method</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">COVID-19 - Vaccine efficiency/effectiveness - screening method - overall</h1>
+<h4 class="author"><a href="mailto:olivier.duperrex@unisante.ch" class="email">olivier.duperrex@unisante.ch</a></h4>
+<h4 class="date">version 2021-09-08</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-09-08
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>vaccine_effectiveness_screening_method/analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210826code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210826)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210826code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210826)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree278ebf1abd47fc8e0b55e0f4a2df2ba283d57cd9targetblank278ebf1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/278ebf1abd47fc8e0b55e0f4a2df2ba283d57cd9" target="_blank">278ebf1</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree278ebf1abd47fc8e0b55e0f4a2df2ba283d57cd9targetblank278ebf1a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/278ebf1abd47fc8e0b55e0f4a2df2ba283d57cd9" target="_blank">278ebf1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    _sandpit/
+    Ignored:    output/RData/
+    Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global.png
+    Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png
+    Ignored:    output/xlsx/
+
+Untracked files:
+    Untracked:  data/data_raw_overall.xlsx
+    Untracked:  output/png4ppt/p02_bis_incidence_cas_vacc2doses_14d_autre_generations.png
+    Untracked:  output/png4ppt/t0_1_VE_hypothesis.png
+    Untracked:  output/png4ppt/t1_vaccine_effectiveness_by_generations.png
+    Untracked:  output/png4ppt/t2_RR_nonvac_vacc_generations_global.png
+
+Unstaged changes:
+    Modified:   0_run_ME.R
+    Modified:   analysis/01_VE_nomogram.Rmd
+    Modified:   output/.gitignore
+    Modified:   output/png4ppt/p0_2_VE_nomogram_PPV_40.png
+    Modified:   output/png4ppt/p0_3_VE_nomogram_PPV_80.png
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/02a_VE_screening_method_overall.Rmd</code>) and HTML (<code>docs/02a_VE_screening_method_overall.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/278ebf1abd47fc8e0b55e0f4a2df2ba283d57cd9/analysis/02a_VE_screening_method_overall.Rmd" target="_blank">278ebf1</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-09-08
+</td>
+<td>
+Initial commit
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="aim" class="section level1">
+<h1>Aim</h1>
+<ul>
+<li>Calculate vaccine effectiveness approximation using the Farrington method <span class="citation">(Farrington 1993)</span></li>
+</ul>
+</div>
+<div id="what-are-we-talking-about" class="section level1">
+<h1>What are we talking about?</h1>
+<ul>
+<li><p>The so-called Screening Method is very simple and cost-effective to have a quick assesment of the vaccine effectiveness in a population</p></li>
+<li><p>It compares the proportion of vaccinated in cases and in the population</p></li>
+<li><p>The surveillance data on vaccination coverage must be reliable</p></li>
+<li><p>It is better to stratify by age groups when the coverage varies between them</p></li>
+<li><p>Further information on limitations of the method can be found in <span class="citation">(ECDC 2018)</span> and <span class="citation">(WHO 2021)</span></p></li>
+</ul>
+</div>
+<div id="setting-up-the-scene" class="section level1">
+<h1>Setting up the scene</h1>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, comment = NA, include = TRUE, results=&#39;hide&#39;)
+# avoid scientific notation
+options(scipen=999)
+
+
+## you are here -----------------------------------------------------
+# rm(list = ls())
+here::here()</code></pre>
+<pre><code>[1] &quot;C:/Users/ol8094/Documents/_analyses/vaccine_effectiveness_screening_method&quot;</code></pre>
+<div id="definitions" class="section level2">
+<h2>Definitions</h2>
+<ul>
+<li>VE = vaccine efficacy (in controlled research studies) or vaccine effectiveness (in real public health world)</li>
+</ul>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="41%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>en</th>
+<th>fr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VE</td>
+<td>vaccine efficacy (in controlled research studies) or vaccine effectiveness (in real public health world) =&gt; VE is 1 – odds of vaccination in cases compared to population</td>
+<td>efficacité vaccinale étudiée ou réelle =&gt; VE est 1 - rapport des <em>cotes</em> des vaccinés parmi les cas comparé àla population</td>
+</tr>
+<tr class="even">
+<td>PCV</td>
+<td>proportion of cases vaccinated</td>
+<td>proportion des cas vaccinés</td>
+</tr>
+<tr class="odd">
+<td>PPV</td>
+<td>proportion of population vaccinated</td>
+<td>proportion de la population vaccinée</td>
+</tr>
+</tbody>
+</table>
+<p>If you don’t know about this method, please look at <a href="01_VE_nomogram.html">01_VE_nomogram</a>.</p>
+</div>
+<div id="select-language-for-labels-in-tables-and-graphs" class="section level2">
+<h2>Select language for labels in tables and graphs</h2>
+<p>If you use this script you might have to modify some of the labels below so they correspond to your reality.</p>
+<pre class="r"><code>
+language_chosen &lt;- &quot;en&quot;
+# language_chosen &lt;- &quot;fr&quot;
+
+
+
+if (language_chosen == &#39;fr&#39;) {
+  ## labels fr ---------------------------------
+  title &lt;- &quot;Canton factice - COVID-19&quot;
+  
+  label_y &lt;- &quot;PCV = proportion des cas vaccinés&quot;
+  label_x &lt;- &quot;PPV = proportion de la population vaccinée&quot;
+  
+  label_agegr_gen &lt;-  &quot;Groupe d&#39;âge&quot;
+  label_total_pop &lt;- &quot;Population pour ce groupe d&#39;âge (N)&quot;
+  label_total_vaccinated_2doses_14d_N &lt;-
+    &quot;Personnes complètement vaccinées (N)&quot;
+  label_total_cases_N &lt;- &quot;Nouveaux cas (N)&quot;
+  # label_cases_14d_vaccinated_2doses_14d_N &lt;- &quot;Cas vaccinés (N)&quot;
+  
+  label_PPV_2doses_14d &lt;-
+    &quot;Proportion de la population vaccinée (PPV)&quot;
+  label_PCV_2doses_14d  &lt;-  &quot;Proportion des cas vaccinés (PCV)&quot;
+  label_VE_2doses_14d &lt;-  &quot;Efficacité vaccinale réelle (VE)&quot;
+  
+  
+  caption_g &lt;-  &quot;Source : Données factices pour illustration&quot;
+  
+  subtitle_t1 &lt;-
+    &quot;Approximation de l&#39;efficacité vaccinale réelle selon les générations, par la méthode de Farrington&quot;
+  
+  footnote_t1_1 &lt;-
+    &quot;Méthode de dépistage = méthode cas-population. Compare la part des vaccinés dans la population à celle des cas, en utilisant les rapports de cotes (Odds ratios)&quot;
+  # footnote_t1_2  &lt;-
+  #   &quot;Nombre de nouveaux cas depuis le 27.1.2021 (modification formulaire OFSP)&quot;
+  footnote_t1_3 &lt;- &quot;Nouveaux cas 14j ou plus après la 2e dose&quot;
+  footnote_t1_4 &lt;- &quot;Avec 2 doses depuis 14j ou plus&quot;
+  
+  period_1 &lt;- &quot;depuis le 27.1.2021&quot;
+  footnote_total_cases_t1 &lt;-
+    paste0(&quot;Nombre de nouveaux cas &quot;,
+           period_1,
+           &quot; (modification formulaire OFSP)&quot;)
+  subtitle_part_1 &lt;-
+    &quot;Comparaison des nouveaux cas chez les personnes complètement vaccinées &lt;br&gt; et chez les non ou partiellement vaccinées,
+selon les générations &quot;
+  
+  footnote_per10k &lt;- &quot;Pour 10&#39;000 personnes&quot;
+  
+  
+  
+  label_cases_14d_vaccinated_2doses_14d_N &lt;-
+    &quot;Cas chez personnes vaccinées (N)&quot;
+  label_cases_nonvaccinated_14d &lt;-
+    &quot;Cas chez personnes non ou partiellement vaccinées (N)&quot;
+  label_total_nonvaccinated_14d &lt;-
+    &quot;Personnes non ou partiellement vaccinées (N)&quot;
+  label_incidence_cases_vaccinated_2doses_14d_per10k  &lt;-
+    &#39;Incidence cas chez les vaccinés (pour 10 mille)&#39;
+  label_incidence_cases_nonvaccinated_14d_per10k  &lt;-
+    &#39;Incidence cas chez les personnes non vaccinées  (pour 10 mille)&#39;
+  
+  label_RR &lt;-
+    &quot;Risque relatif de devenir un cas chez les personnes non ou partiellement vaccinées comparé aux personnes complètement vaccinées - si RR&gt;1, la vaccination protège&quot;
+  label_RR_lower &lt;- &#39;RR IC95% inf&#39;
+  label_RR_upper &lt;- &#39;RR IC95% sup&#39;
+  label_RR_inverse &lt;-
+    &quot;Risque relatif de devenir un cas des personnes complètement vaccinées comparé aux personnes non ou partiellement vaccinées - si RR&lt;1, la vaccination protège&quot;
+  
+  label_vacc_2d_14j  &lt;-
+    &quot;Personnes complètement vaccinées (2 doses depuis 14 jours ou plus)&quot;
+  
+  
+  label_y_p02 &lt;- &#39;Incidence de cas (pour 10 mille)&#39;
+  subtitle_part_p02 &lt;-
+    &quot;Nouveaux cas pour 10&#39;000 personnes - selon les générations &quot;
+  
+  label_vacc_2d_14j_fully &lt;- &#39;Personnes vaccinées complètement&#39;
+label_vacc_2d_14j_notfully &lt;- &#39;Personnes non vaccinées ou partiellement&#39;
+
+
+} else {
+  ## labels en ---------------------------------
+  title &lt;- &quot;Fictional canton - COVID-19&quot;
+  
+  label_y &lt;- &quot;PCV = proportion of cases vaccinated&quot;
+  label_x &lt;-  &quot;PPV = proportion of population fully vaccinated&quot;
+  
+  label_agegr_gen &lt;-  &quot;Age group&quot;
+  label_total_pop &lt;- &quot;Population by age group (N)&quot;
+  label_total_vaccinated_2doses_14d_N &lt;-
+    &quot;Persons fully vaccinated (N)&quot;
+  label_total_cases_N &lt;- &quot;New cases (N)&quot;
+  label_cases_14d_vaccinated_2doses_14d_N &lt;-
+    &quot;New cases despite full vaccination (N)&quot;
+  
+  label_PPV_2doses_14d &lt;-
+    &quot;Proportion of population fully vaccinated (PPV)&quot;
+  label_PCV_2doses_14d  &lt;-
+    &quot;Proportion of cases fully vaccinated (PCV)&quot;
+  label_VE_2doses_14d &lt;-  &quot;Vaccine effectiveness (VE)&quot;
+  
+  caption_g &lt;-  &quot;Source : Fictional data for illustration&quot;
+  
+  subtitle_t1 &lt;-
+    &quot;Approximation de vaccine effectiveness by generations, with the Farrington method&quot;
+  footnote_t1_1 &lt;-
+    &quot;Screening method =  case-population method. Compare the proportion of vaccinated between population and cases, by using Odds ratios&quot;
+  # footnote_t1_2  &lt;-
+  # &quot;Number of new cases since le 27.1.2021 (modification formulaire OFSP)&quot;
+  footnote_t1_3 &lt;- &quot;New cases 14d or more after the 2nd dose&quot;
+  footnote_t1_4 &lt;- &quot;Vaccinated with 2 doses 14d age or more&quot;
+  
+  period_1 &lt;- &quot;since 27.1.2021&quot;
+  footnote_total_cases_t1 &lt;-
+    paste0(&quot;Number of new cases &quot;,
+           period_1,
+           &quot; (modification of FOPH declaration)&quot;)
+  subtitle_part_1 &lt;-
+    &quot;Comparison of new cases in fully vaccinated persons (2 doses 14d ago or more) &lt;br&gt; and in the not-fully vaccinated persons,
+by generations &quot;
+  
+  label_RR &lt;-
+    &quot;RR : Relative risk to be a case in not-fully vaccinated persons (no vaccine, 1 unique dose or 2 doses less than 14j) compared to fully vaccinated persons (2 doses 14d ago or more) - if RR&gt;1, vaccination protects&quot;
+  label_RR_lower &lt;- &#39;RR CI95% low&#39;
+  label_RR_upper &lt;- &#39;RR CI95% high&#39;
+  footnote_per10k &lt;- &quot;For 10&#39;000 persons&quot;
+  label_cases_nonvaccinated_14d &lt;-
+    &quot;Cases in persons not-fully vaccinated (N)&quot;
+  label_total_nonvaccinated_14d &lt;-
+    &quot;Persons not fully vaccinated (N)&quot;
+  label_incidence_cases_vaccinated_2doses_14d_per10k  &lt;-
+    &#39;Incidence of new cases in fully vaccinated persons (pour 10 mille)&#39;
+  label_incidence_cases_nonvaccinated_14d_per10k  &lt;-
+    &#39;Incidence of new cases in not-fully vaccinated persons (pour 10 mille)&#39;
+  label_RR_inverse &lt;-
+    &quot;Relative risk to be a case in fully vaccinated persons (2 doses 14d ago or more) compared to not-fully vaccinated persons (no vaccine, 1 unique dose or 2 doses less than 14j) - if RR&lt;1, vaccination protects&quot;
+  
+  label_vacc_2d_14j  &lt;-
+    &quot;Persons fully vaccinated (2 doses depuis 14 jours ou plus)&quot;
+  label_y_p02 &lt;- &quot;Incidence of new cases (per 10&#39;000)&quot;
+  subtitle_part_p02 &lt;-
+    &quot;New cases per 10&#39;000 persons - selon les générations &quot;
+  
+  label_vacc_2d_14j_fully &lt;- &#39;Persons fully vaccinated&#39;
+  label_vacc_2d_14j_notfully &lt;- &#39;Persons not-fully vaccinated&#39;
+
+}
+
+## . p02_bis ---------------------------------------------------------
+label_x_p02 &lt;- label_vacc_2d_14j
+
+subtitle_p02 &lt;-
+  gt::md(
+    paste0(
+      subtitle_part_p02,
+      &#39;**(&#39;,
+      period_1,
+      &#39;)&lt;br&gt;**&#39;
+    )
+  )</code></pre>
+</div>
+<div id="the-equations" class="section level2">
+<h2>The equations</h2>
+<pre class="r"><code>
+VE_equation &lt;- &quot;VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))&quot;
+PCV_equation &lt;- &quot;PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))&quot;
+
+# caption_table : will be used as caption
+caption_table &lt;- VE_equation</code></pre>
+</div>
+<div id="load-libraries" class="section level2">
+<h2>Load libraries</h2>
+<pre class="r"><code>pacman::p_load(
+  data.table,   # managing data
+  ggplot2,      # create plots
+  ggpmisc,      # plot tweaking - i.e. insert a table in the plot
+  ggrepel,      # nice labels on plots
+  gt,           # nice tables
+  huxtable,     # nice tables
+  magrittr,     # for the pipe %&gt;% and the assignement pipe %&lt;&gt;%
+  scales        # for percent in graph axis
+  # sjmisc
+)</code></pre>
+</div>
+<div id="local-functions" class="section level2">
+<h2>Local functions</h2>
+<pre class="r"><code>## local functions --------------------------------------------------
+## all functions might not be used in this repository but are kept for illustration
+
+source(here::here(&#39;code&#39;, &#39;00_functions.R&#39;), encoding = &#39;UTF-8&#39;)</code></pre>
+</div>
+<div id="load-data" class="section level2">
+<h2>Load data</h2>
+<p>The data used in this script is a fictional data set, inspired by the reality of a canton at one point. You can update the file with your own data (or read your own file) and run this script.</p>
+<pre class="r"><code>## load data --------------------------------------------------------
+## data_raw_overall.xlsx is a fictional data set
+file_to_import &lt;- here::here(&#39;data&#39;, &#39;data_raw_overall.xlsx&#39;)
+
+data_raw_overall &lt;-
+  rio::import(file_to_import) %&gt;%       # rio will select the appropriate package to import
+  setDT()     %&gt;%                       # create a data.table
+  sjlabelled::var_labels(               # add labels using quasiquotation (double exclamation mark)
+    agegr_gen = !!label_agegr_gen,
+    total_pop = !!label_total_pop,
+    total_vaccinated_2doses_14d_N = !!label_total_vaccinated_2doses_14d_N,
+    total_cases_N = !!label_total_cases_N,
+    cases_14d_vaccinated_2doses_14d_N = !!label_cases_14d_vaccinated_2doses_14d_N
+  )
+
+str(data_raw_overall)
+
+## for more info on use of quasiquotation please read https://strengejacke.github.io/sjlabelled/articles/quasiquotation.html </code></pre>
+</div>
+<div id="setup-plots-and-tables" class="section level2">
+<h2>Setup plots and tables</h2>
+<pre class="r"><code>## theme for huxtables
+options(&#39;huxtable.knit_print_df_theme&#39; = theme_article)
+options(&#39;huxtable.autoformat_number_format&#39; = list(numeric = &quot;%5.2f&quot;))
+
+
+
+## themes and elements for plots ---------------------------------------
+theme_set(sjPlot::theme_sjplot2(base_size = 10))
+Registered S3 methods overwritten by &#39;parameters&#39;:
+  method                           from      
+  as.double.parameters_kurtosis    datawizard
+  as.double.parameters_skewness    datawizard
+  as.double.parameters_smoothness  datawizard
+  as.numeric.parameters_kurtosis   datawizard
+  as.numeric.parameters_skewness   datawizard
+  as.numeric.parameters_smoothness datawizard
+  print.parameters_distribution    datawizard
+  print.parameters_kurtosis        datawizard
+  print.parameters_skewness        datawizard
+  summary.parameters_kurtosis      datawizard
+  summary.parameters_skewness      datawizard
+theme_update(
+  legend.title = element_blank(),
+  legend.position = &quot;right&quot;,
+  strip.background = element_rect(fill = &quot;white&quot;),
+  plot.subtitle = ggtext::element_markdown()
+)
+
+
+## Prepare some elements for plots ----------------------------------
+# out_png4ppt : output folder for png ---
+# needs to be modified according to your own project structure
+out_png4ppt &lt;- here::here(&#39;output&#39;, &#39;png4ppt&#39;) 
+
+
+caption_table &lt;- caption_g
+
+caption_g_bis &lt;- paste0(&#39;
+&#39;, caption_g)</code></pre>
+</div>
+</div>
+<div id="generations" class="section level1">
+<h1>Generations</h1>
+<ul>
+<li><p>We use generations rather then multiples of 10 or 20 because they are more meaningful</p></li>
+<li><p>This takes into accounts the observation period of 14d post-vaccination</p></li>
+<li><p>The variable <em>day_14_post_second_vac_date</em> was created in the recoding step and is used to filter the dataset</p></li>
+</ul>
+<pre class="r"><code>
+
+## . add total by columns ----
+
+t1_vaccine_effectiveness_by_generations &lt;- data_raw_overall %&gt;% janitor::adorn_totals()
+
+
+## . PPV and PCV ----
+## PPV = proportion of population vaccinated
+## PCV = proportion of cases vaccinated
+t1_vaccine_effectiveness_by_generations[, `:=`(
+  PPV_2doses_14d = formattable::percent(total_vaccinated_2doses_14d_N / total_pop, 1),
+  PCV_2doses_14d = formattable::percent(cases_14d_vaccinated_2doses_14d_N / total_cases_N, 1)
+)]
+
+## . VE = vaccine effectiveness ----
+
+t1_vaccine_effectiveness_by_generations[, VE_2doses_14d := 1 - (PCV_2doses_14d / (1 - PCV_2doses_14d)) / (PPV_2doses_14d / (1 - PPV_2doses_14d))]
+
+## . modify order of columns ----
+new &lt;- c(&quot;agegr_gen&quot;,
+         &quot;total_pop&quot; ,
+         &quot;total_vaccinated_2doses_14d_N&quot;,
+         &quot;PPV_2doses_14d&quot;,
+         &quot;total_cases_N&quot; ,
+         &quot;cases_14d_vaccinated_2doses_14d_N&quot;,
+         &quot;PCV_2doses_14d&quot;,
+         &quot;VE_2doses_14d&quot;)
+
+setcolorder(t1_vaccine_effectiveness_by_generations, new)
+
+
+## . add variable labels ----
+## need to reapply them
+t1_vaccine_effectiveness_by_generations  %&lt;&gt;%
+  sjlabelled::var_labels(
+    agegr_gen = !!label_agegr_gen,
+    total_pop = !!label_total_pop,
+    total_vaccinated_2doses_14d_N = !!label_total_vaccinated_2doses_14d_N,
+    PPV_2doses_14d = !!label_PPV_2doses_14d,
+    total_cases_N = !!label_total_cases_N,
+    cases_14d_vaccinated_2doses_14d_N = !!label_cases_14d_vaccinated_2doses_14d_N,
+    PCV_2doses_14d = !!label_PCV_2doses_14d,
+    VE_2doses_14d = !!label_VE_2doses_14d
+  )
+
+
+
+## save table as xlsx
+name_xlsx &lt;-
+  here::here(
+    &#39;output&#39;,
+    &#39;xlsx&#39;,
+    &#39;t1_vaccine_effectiveness_by_generations.xlsx&#39;
+  )
+
+writexl::write_xlsx(t1_vaccine_effectiveness_by_generations, name_xlsx)
+
+## save table as RData
+filename &lt;-   here::here(&#39;output&#39;, &#39;RData&#39;, &#39;t1_vaccine_effectiveness_by_generations.RData&#39;)
+save(t1_vaccine_effectiveness_by_generations,  file = filename)</code></pre>
+<pre class="r"><code># . gt ----
+
+# subtitle_t1 &lt;- &quot;Approximation de l&#39;efficacité vaccinale réelle selon les générations, par la méthode de Farrington&quot;
+
+table_name &lt;- &#39;t1_vaccine_effectiveness_by_generations.png&#39;
+
+# names(t1_vaccine_effectiveness_by_generations)
+
+## generate table with labels
+t1_vaccine_effectiveness_by_generations_gt &lt;-
+  t1_vaccine_effectiveness_by_generations %&gt;%
+  gt() %&gt;%
+  tab_header(title = title,
+             subtitle = subtitle_t1) %&gt;%
+  cols_label(
+    agegr_gen = label_agegr_gen,
+    total_pop = label_total_pop,
+    total_vaccinated_2doses_14d_N = label_total_vaccinated_2doses_14d_N,
+    PPV_2doses_14d = label_PPV_2doses_14d,
+    total_cases_N = label_total_cases_N,
+    cases_14d_vaccinated_2doses_14d_N = label_cases_14d_vaccinated_2doses_14d_N,
+    PCV_2doses_14d = label_PCV_2doses_14d,
+    VE_2doses_14d = label_VE_2doses_14d
+
+  ) %&gt;%
+
+  fmt_number(columns = c(2:3, 5:6),
+             decimals = 0,
+             sep_mark = &quot;&#39;&quot;) %&gt;%
+
+  tab_footnote(footnote = footnote_t1_1,
+               locations =  cells_title(groups = &quot;subtitle&quot;)) %&gt;%
+
+  tab_footnote(footnote = footnote_total_cases_t1,
+               locations = cells_column_labels(columns = total_cases_N)) %&gt;%
+  tab_footnote(
+    footnote = footnote_t1_3,
+    locations = cells_column_labels(columns = cases_14d_vaccinated_2doses_14d_N)
+  ) %&gt;%
+
+  tab_footnote(
+    footnote = footnote_t1_4,
+    locations = cells_column_labels(
+      columns = c(
+        total_vaccinated_2doses_14d_N,
+        PPV_2doses_14d,
+        PCV_2doses_14d,
+        VE_2doses_14d
+      )
+    )) %&gt;%
+
+  tab_footnote(footnote = VE_equation,
+  locations = cells_column_labels(columns = VE_2doses_14d)) %&gt;%
+      tab_source_note(source_note = caption_table) %&gt;%
+
+      tab_options(data_row.padding = px(2)
+      )
+
+
+
+# t1_vaccine_effectiveness_by_generations_gt
+
+
+## save gt table as png
+t1_vaccine_effectiveness_by_generations_gt %&gt;% gtsave(table_name,
+                     path = out_png4ppt)</code></pre>
+<p><img src="figure/02a_VE_screening_method_overall.Rmd/t1_vaccine_effectiveness_by_generations_gt-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="incidence-rates-amongst-fully-vaccinated-and-others" class="section level1">
+<h1>Incidence rates amongst fully vaccinated and others</h1>
+<pre class="r"><code>## . t2_RR_nonvac_vacc_generations_global  ----
+
+subtitle &lt;-
+  md(
+    paste0(
+      subtitle_part_1,
+      &#39;**(&#39;,
+      period_1,
+      &#39;)**&#39;
+    )
+  )
+
+
+table_name &lt;- &#39;t2_RR_nonvac_vacc_generations_global.png&#39;
+
+## t2_RR_nonvac_vacc_generations_global ---
+names(t1_vaccine_effectiveness_by_generations)
+
+t2_RR_nonvac_vacc_generations_global &lt;-
+  t1_vaccine_effectiveness_by_generations[, .(
+    agegr_gen,
+    total_pop,
+    total_vaccinated_2doses_14d_N,
+    PPV_2doses_14d,
+    total_cases_N ,
+    cases_14d_vaccinated_2doses_14d_N
+  )]
+
+
+multiplicator  &lt;-  10 ^ 4
+
+t2_RR_nonvac_vacc_generations_global[, incidence_cases_vaccinated_2doses_14d_per10k := round(
+  multiplicator * (
+    cases_14d_vaccinated_2doses_14d_N / total_vaccinated_2doses_14d_N
+  ),
+  1
+)]
+
+t2_RR_nonvac_vacc_generations_global[, cases_nonvaccinated_14d := total_cases_N - cases_14d_vaccinated_2doses_14d_N]
+
+t2_RR_nonvac_vacc_generations_global[, total_nonvaccinated_14d := total_pop - total_vaccinated_2doses_14d_N]
+
+t2_RR_nonvac_vacc_generations_global[, incidence_cases_nonvaccinated_14d_per10k :=  round(multiplicator * (cases_nonvaccinated_14d / total_nonvaccinated_14d), 1)][]
+
+## approach :
+## # non-exposed = vaccinated
+## # exposed = non-vaccinated
+
+t2_RR_nonvac_vacc_generations_global[, c(&#39;RR&#39;, &#39;RR_lower&#39;, &#39;RR_upper&#39;,
+       &#39;AR&#39;, &#39;AR_lower&#39;, &#39;AR_upper&#39;) := add_RR_AR(
+         x2 = cases_14d_vaccinated_2doses_14d_N, # non-exposed = vaccinated
+         n2 = total_vaccinated_2doses_14d_N,       # non-exposed = vaccinated
+         x1 = cases_nonvaccinated_14d,       # exposed = non-vaccinated
+         n1 = total_nonvaccinated_14d,       # exposed = non-vaccinated
+         rounding = 0
+       ),
+   keyby = agegr_gen]
+
+## . !!! pb with ARR need to be checked !!! ----
+t2_RR_nonvac_vacc_generations_global[, c(&#39;AR&#39;, &#39;AR_lower&#39;, &#39;AR_upper&#39;) := NULL]
+
+t2_RR_nonvac_vacc_generations_global[, RR_inverse := round(1/RR, 3)][]
+
+## . add labels ----
+# foo5b &lt;- copy_labels(foo5b, foo5)
+sjlabelled::get_label(t2_RR_nonvac_vacc_generations_global)
+
+# names(t2_RR_nonvac_vacc_generations_global)
+t2_RR_nonvac_vacc_generations_global &lt;-
+  t2_RR_nonvac_vacc_generations_global %&gt;%
+  sjlabelled::var_labels(
+    agegr_gen = !!label_agegr_gen,
+    total_pop = !!label_total_pop,
+    total_vaccinated_2doses_14d_N = !!label_total_vaccinated_2doses_14d_N,
+    PPV_2doses_14d = !!label_PPV_2doses_14d,
+    cases_14d_vaccinated_2doses_14d_N = !!label_cases_14d_vaccinated_2doses_14d_N,
+    cases_nonvaccinated_14d = !!label_cases_nonvaccinated_14d,
+    total_nonvaccinated_14d = !!label_total_nonvaccinated_14d,
+    incidence_cases_vaccinated_2doses_14d_per10k  = !!label_incidence_cases_vaccinated_2doses_14d_per10k,
+    incidence_cases_nonvaccinated_14d_per10k  = !!label_incidence_cases_nonvaccinated_14d_per10k,
+    RR = !!label_RR,
+    RR_lower = !!label_RR_lower,
+    RR_upper = !!label_RR_upper,
+    # AR = !!&#39;Différence de risque&#39;,
+    # AR_lower = !!&#39;AR IC95% inf&#39;,
+    # AR_upper = !!&#39;AR IC95% sup&#39;,
+    RR_inverse = !!label_RR_inverse
+  )
+
+# sjlabelled::get_label(t2_RR_nonvac_vacc_generations_global)
+
+    
+
+## get rid of the inverse RR
+t2_RR_nonvac_vacc_generations_global[, RR_inverse:=NULL]
+
+new_col_order &lt;-
+  c(
+    &quot;agegr_gen&quot;,
+    &quot;total_pop&quot;,
+    &quot;total_vaccinated_2doses_14d_N&quot;,
+    &quot;total_nonvaccinated_14d&quot;,
+    &quot;PPV_2doses_14d&quot; ,
+    &quot;total_cases_N&quot;,
+    &quot;cases_14d_vaccinated_2doses_14d_N&quot;,
+    &quot;cases_nonvaccinated_14d&quot; ,
+    &quot;incidence_cases_vaccinated_2doses_14d_per10k&quot; ,
+    &quot;incidence_cases_nonvaccinated_14d_per10k&quot;,
+    &quot;RR&quot;,
+    &quot;RR_lower&quot;,
+    &quot;RR_upper&quot;
+  )
+
+setcolorder(t2_RR_nonvac_vacc_generations_global, new_col_order)
+
+## generate table with labels ---
+t2_RR_nonvac_vacc_generations_global_gt &lt;-
+  t2_RR_nonvac_vacc_generations_global %&gt;%
+  gt() %&gt;%
+  tab_header(title = title,
+             subtitle = subtitle) %&gt;%
+  cols_label(
+    agegr_gen = label_agegr_gen,
+    total_pop = label_total_pop,
+    total_cases_N = label_total_cases_N,
+    total_vaccinated_2doses_14d_N = label_total_vaccinated_2doses_14d_N,
+    PPV_2doses_14d = label_PPV_2doses_14d,
+    cases_14d_vaccinated_2doses_14d_N = &quot;Cas chez personnes vaccinées (N)&quot;,
+    cases_nonvaccinated_14d = &quot;Cas chez personnes Autres (N)&quot;,
+    total_nonvaccinated_14d = &quot;Personnes Autres (N)&quot;,
+    incidence_cases_vaccinated_2doses_14d_per10k  = &#39;Incidence cas chez les personnes vaccinées  (pour 10 mille)&#39;,
+    incidence_cases_nonvaccinated_14d_per10k  = &#39;Incidence cas chez les personnes Autres  (pour 10 mille)&#39;,
+    RR = &quot;RR&quot;,
+    RR_lower = &#39;RR IC95% inf&#39;,
+    RR_upper = &#39;RR IC95% sup&#39;
+  ) %&gt;%
+
+  fmt_number(
+    columns = c(2:4, 6:8),
+    decimals = 0,
+    sep_mark = &quot;&#39;&quot;
+  ) %&gt;%
+
+  tab_footnote(footnote = footnote_total_cases_t1,
+               locations = cells_column_labels(columns = total_cases_N)) %&gt;%
+  tab_footnote(
+    footnote = &quot;Nouveaux cas 14j ou plus après la 2e dose&quot;,
+    locations = cells_column_labels(columns = cases_14d_vaccinated_2doses_14d_N)
+  ) %&gt;%
+
+  tab_footnote(footnote = &quot;Vaccinée = avec 2 doses depuis 14j ou plus&quot;,
+               locations = cells_column_labels(columns = c(total_vaccinated_2doses_14d_N,
+                                                           PPV_2doses_14d,
+                                                           incidence_cases_vaccinated_2doses_14d_per10k))) %&gt;%
+  tab_footnote(footnote = &quot;Autres = aucun vaccin, 1 seule dose ou 2 doses depuis moins de 14j&quot;,
+               locations = cells_column_labels(columns = c(cases_nonvaccinated_14d,
+                                                           total_nonvaccinated_14d,
+                                                           incidence_cases_nonvaccinated_14d_per10k))) %&gt;%
+  tab_footnote(
+    footnote =
+      label_RR,
+    locations = cells_column_labels(columns = c(RR, RR_lower, RR_upper))) %&gt;%
+  tab_source_note(source_note = caption_table) %&gt;%
+
+  tab_options(data_row.padding = px(2)
+  )
+
+
+
+t2_RR_nonvac_vacc_generations_global_gt
+
+
+
+t2_RR_nonvac_vacc_generations_global_gt %&gt;% gtsave(table_name, path = out_png4ppt,
+                 vwidth = 1200, vheight = 600)</code></pre>
+<p><img src="figure/02a_VE_screening_method_overall.Rmd/t2_RR_nonvac_vacc_generations_global-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>
+
+
+
+name_xlsx &lt;-
+  here::here(
+    &#39;output&#39;,
+    &#39;xlsx&#39;,
+    &#39;t2_RR_nonvac_vacc_generations_global.xlsx&#39;
+  )
+
+writexl::write_xlsx(t2_RR_nonvac_vacc_generations_global, name_xlsx)
+
+
+filename &lt;-   here::here(&#39;output&#39;, &#39;RData&#39;, &#39;t2_RR_nonvac_vacc_generations_global.RData&#39;)
+save(t2_RR_nonvac_vacc_generations_global,  file = filename)</code></pre>
+<div id="table" class="section level2">
+<h2>Table</h2>
+<pre class="r"><code>## . t2_bis_RR_nonvac_vacc_generations_global - incidence with CI ---------------------------------------
+## reshape and add vacc_2d_14j --
+
+
+
+## .. t2_vacc_2d_14j : subset of t7 ----
+t2_vacc_2d_14j &lt;-
+  t2_RR_nonvac_vacc_generations_global[, .(vacc_2d_14j = label_vacc_2d_14j_fully,
+                                           agegr_gen,
+                                           total = total_vaccinated_2doses_14d_N,
+                                           cases = cases_14d_vaccinated_2doses_14d_N)]
+
+## .. t2_nonvacc_2d_14j : subset of t7 ----
+t2_nonvacc_2d_14j &lt;-
+  t2_RR_nonvac_vacc_generations_global[, .(vacc_2d_14j = label_vacc_2d_14j_notfully,
+                                           agegr_gen,
+                                           total = total_nonvaccinated_14d,
+                                           cases = cases_nonvaccinated_14d)]
+
+t2_bis_RR_nonvac_vacc_generations_global &lt;- rbind(t2_vacc_2d_14j, t2_nonvacc_2d_14j)
+
+
+t2_bis_RR_nonvac_vacc_generations_global[, c(
+  &#39;inc_per10K&#39;,
+  &#39;conf_low_per10K&#39;,
+  &#39;conf_high_per10K&#39;
+) := add_prop_test(
+  cases,
+  total,
+  multiplicator = 10 ^ 4,
+  rounding = 1
+), keyby = .(vacc_2d_14j, agegr_gen)]
+
+
+# t2_bis_RR_nonvac_vacc_generations_global[, vacc_2d_14j := relevel(as.factor(vacc_2d_14j), ref = &#39;Oui&#39;)]
+
+t2_bis_RR_nonvac_vacc_generations_global %&lt;&gt;%
+    sjlabelled::var_labels(
+      vacc_2d_14j = label_vacc_2d_14j
+  )
+
+
+name_xlsx &lt;-
+  here::here(
+    &#39;output&#39;,
+    &#39;xlsx&#39;,
+    &#39;t2_bis_RR_nonvac_vacc_generations_global.xlsx&#39;
+  )
+
+writexl::write_xlsx(t2_bis_RR_nonvac_vacc_generations_global, name_xlsx)</code></pre>
+</div>
+<div id="plots" class="section level2">
+<h2>Plots</h2>
+<pre class="r"><code>
+nudge_x &lt;- 0.2
+
+
+p02_bis &lt;-
+  ggplot(
+    t2_bis_RR_nonvac_vacc_generations_global[!(agegr_gen == &#39;Total&#39;),],
+    aes(
+      x = agegr_gen,
+      y = inc_per10K ,
+      ymin = conf_low_per10K ,
+      ymax = conf_high_per10K,
+      label = round(inc_per10K, 0),
+      col = agegr_gen
+    )
+  ) +
+  # ylim(0, 100) +
+  scale_y_continuous(
+    limits = c(0, 1200),
+    breaks = seq(0, 1200, 200),
+    labels = comma_format(big.mark = &quot;&#39;&quot;, accuracy = 1)
+  ) +
+  geom_pointrange() +
+  # coord_flip() +
+  labs(
+    title = title,
+    subtitle = subtitle,
+    x = &#39;&#39;,
+    y = label_y_p02,
+    caption = caption_g_bis
+  ) +
+  geom_hline(yintercept = 0) +
+  scale_x_discrete(labels = NULL, position = &#39;top&#39;) +
+  # scale_x_discrete(guide = guide_axis(n.dodge = 3)) +
+  # scale_x_discrete(guide = guide_axis(angle = 45)) +
+  facet_grid(. ~ vacc_2d_14j) +
+  ggrepel::geom_text_repel(
+    nudge_x = nudge_x,
+    min.segment.length = Inf,
+    show.legend = FALSE  # Don&#39;t display &quot;a&quot; in the legend.
+  ) +
+  theme(
+    panel.spacing = unit(3, &quot;lines&quot;),
+    text = element_text(size = 12),
+    strip.placement = &#39;top&#39;,
+    strip.background = element_blank()
+  ) +
+  guides(fill = guide_legend(title = &quot;&quot;,
+                             override.aes = aes(label = &quot;&quot;)))
+
+p02_bis</code></pre>
+<p><img src="figure/02a_VE_screening_method_overall.Rmd/p02_bis_incidence_cas_vacc2doses_14d_autre_generations-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>
+plot_name &lt;- paste0(&quot;p02_bis_incidence_cas_vacc2doses_14d_autre_generations.png&quot;)
+
+ggsave(plot_name, path = out_png4ppt, width = 10, height = 6, dpi = 600)</code></pre>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ecdc2018" class="csl-entry">
+ECDC. 2018. <span>“Training of Trainers in Epidemiology of Vaccine Preventable Diseases - Main Learning Points in Lecture <span>“</span>Applied Epidemiological Research for Vaccine Preventable Diseases: Vaccine Effectiveness<span>”</span>.”</span> <a href="https://eva.ecdc.europa.eu/mod/resource/view.php?id=5149">https://eva.ecdc.europa.eu/mod/resource/view.php?id=5149</a>.
+</div>
+<div id="ref-farrington1993" class="csl-entry">
+Farrington, CP. 1993. <span>“Estimation of Vaccine Effectiveness Using the Screening Method.”</span> <em>International Journal of Epidemiology</em> 22 (4): 742–46. <a href="https://doi.org/10.1093/ije/22.4.742">https://doi.org/10.1093/ije/22.4.742</a>.
+</div>
+<div id="ref-who2021" class="csl-entry">
+WHO. 2021. <span>“Evaluation of COVID-19 Vaccine Effectiveness.”</span> Geneva, Switzerland. <a href="https://apps.who.int/iris/bitstream/handle/10665/340301/WHO-2019-nCoV-vaccine-effectiveness-measurement-2021.1-eng.pdf?sequence=1&amp;isAllowed=y">https://apps.who.int/iris/bitstream/handle/10665/340301/WHO-2019-nCoV-vaccine-effectiveness-measurement-2021.1-eng.pdf?sequence=1&amp;isAllowed=y</a>.
+</div>
+</div>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
