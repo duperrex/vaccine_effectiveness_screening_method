@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -262,7 +264,13 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -297,7 +305,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-08-26
+<strong>Last updated:</strong> 2021-09-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -328,16 +336,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong59ef0ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 59ef0ba </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree44d25b564e30dbcbca17d7aa93152ccfcfe37bc5targetblank44d25b5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/44d25b564e30dbcbca17d7aa93152ccfcfe37bc5" target="_blank">44d25b5</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong59ef0ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree44d25b564e30dbcbca17d7aa93152ccfcfe37bc5targetblank44d25b5a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 59ef0ba. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/44d25b564e30dbcbca17d7aa93152ccfcfe37bc5" target="_blank">44d25b5</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -346,17 +354,22 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    _sandpit/
+    Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global.png
+    Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png
+    Ignored:    output/xlsx/
 
 Untracked files:
-    Untracked:  0_run_ME.R
-    Untracked:  analysis/VE_nomogram.Rmd
-    Untracked:  analysis/references.bib
-    Untracked:  images/
-    Untracked:  output/png4ppt/
+    Untracked:  analysis/02a_VE_screening_method_overall.Rmd
+    Untracked:  data/data_raw_overall.xlsx
+    Untracked:  output/RData/
+    Untracked:  output/png4ppt/p02_bis_incidence_cas_vacc2doses_14d_autre_generations.png
+    Untracked:  output/png4ppt/t1_vaccine_effectiveness_by_generations.png
+    Untracked:  output/png4ppt/t2_RR_nonvac_vacc_generations_global.png
 
 Unstaged changes:
-    Modified:   _workflowr.yml
-    Modified:   analysis/license.Rmd
+    Modified:   0_run_ME.R
+    Modified:   analysis/01_VE_nomogram.Rmd
 
 </code></pre>
 <p>
@@ -397,10 +410,27 @@ Message
 <tbody>
 <tr>
 <td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/44d25b564e30dbcbca17d7aa93152ccfcfe37bc5/analysis/index.Rmd" target="_blank">44d25b5</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-09-08
+</td>
+<td>
+add 02a, 02b, 02c
+</td>
+</tr>
+<tr>
+<td>
 html
 </td>
 <td>
-fde5f36
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/c1aafe0275406611578bde9b209f98047707526d/docs/index.html" target="_blank">c1aafe0</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -417,7 +447,24 @@ Build site.
 html
 </td>
 <td>
-5c0b046
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/fde5f36ccc2407f979cdda0637d95095c61b36fc/docs/index.html" target="_blank">fde5f36</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-08-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/5c0b04669486d957859900180576da5606b50254/docs/index.html" target="_blank">5c0b046</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -434,7 +481,7 @@ Build site.
 Rmd
 </td>
 <td>
-bfa0fdd
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/bfa0fddd87831d2266005bf5c9f993c1eacda736/analysis/index.Rmd" target="_blank">bfa0fdd</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -451,7 +498,7 @@ add VE
 Rmd
 </td>
 <td>
-5422653
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/5422653a9f4a51cb3060c1186dcff283f8009e18/analysis/index.Rmd" target="_blank">5422653</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -472,7 +519,13 @@ Start workflowr project.
 </div>
 <p>Vaccine effectiveness by screening method</p>
 <ul>
-<li><a href="VE_nomogram.html">The nomogram : quick and easy</a></li>
+<li><a href="01_VE_nomogram.html">The nomogram : quick and easy</a></li>
+</ul>
+<p>Summary tables and graphs</p>
+<ul>
+<li><p><a href="02a_VE_screening_method_overall.html">Overall</a></p></li>
+<li><p><a href="02b_VE_screening_method_by_semestre.html">By semmestre</a></p></li>
+<li><p><a href="02c_VE_screening_method_weekly.html">Weekly</a></p></li>
 </ul>
 
 
