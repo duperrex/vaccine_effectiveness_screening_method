@@ -10,4 +10,14 @@ editor_options:
 
 Vaccine effectiveness by screening method
 
-- [The nomogram : quick and easy](VE_nomogram.html)
+- [The nomogram : quick and easy](01_VE_nomogram.html)
+
+
+Summary tables and graphs
+
+- [Overall](02a_VE_screening_method_overall.html)
+
+- [By semmestre](02b_VE_screening_method_by_semestre.html)
+
+- [Weekly](02c_VE_screening_method_weekly.html)
+
