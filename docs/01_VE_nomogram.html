@@ -381,7 +381,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">COVID-19 - Vaccine efficiency/effectiveness - nomogram</h1>
 <h4 class="author"><a href="mailto:olivier.duperrex@unisante.ch" class="email">olivier.duperrex@unisante.ch</a></h4>
-<h4 class="date">version 2021-09-03</h4>
+<h4 class="date">version 2021-09-08</h4>
 
 </div>
 
@@ -406,7 +406,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-07
+<strong>Last updated:</strong> 2021-09-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -497,16 +497,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree45c500d8e03fffd9f9b30ae4e358dfcfb65ab9ddtargetblank45c500da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/45c500d8e03fffd9f9b30ae4e358dfcfb65ab9dd" target="_blank">45c500d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtreefeb88ad5571830b86eae542490204c4071fa7759targetblankfeb88ada"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/feb88ad5571830b86eae542490204c4071fa7759" target="_blank">feb88ad</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree45c500d8e03fffd9f9b30ae4e358dfcfb65ab9ddtargetblank45c500da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtreefeb88ad5571830b86eae542490204c4071fa7759targetblankfeb88ada" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/45c500d8e03fffd9f9b30ae4e358dfcfb65ab9dd" target="_blank">45c500d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/feb88ad5571830b86eae542490204c4071fa7759" target="_blank">feb88ad</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -515,13 +515,24 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    _sandpit/
     Ignored:    output/RData/
     Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global.png
     Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png
     Ignored:    output/xlsx/
 
 Untracked files:
-    Untracked:  analysis/02_VE_screening_method.Rmd
+    Untracked:  data/data_raw_overall.xlsx
+    Untracked:  output/png4ppt/p02_bis_incidence_cas_vacc2doses_14d_autre_generations.png
+    Untracked:  output/png4ppt/t0_1_VE_hypothesis.png
+    Untracked:  output/png4ppt/t1_vaccine_effectiveness_by_generations.png
+    Untracked:  output/png4ppt/t2_RR_nonvac_vacc_generations_global.png
+
+Unstaged changes:
+    Modified:   0_run_ME.R
+    Modified:   output/.gitignore
+    Modified:   output/png4ppt/p0_2_VE_nomogram_PPV_40.png
+    Modified:   output/png4ppt/p0_3_VE_nomogram_PPV_80.png
 
 </code></pre>
 <p>
@@ -560,6 +571,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/feb88ad5571830b86eae542490204c4071fa7759/analysis/01_VE_nomogram.Rmd" target="_blank">feb88ad</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-09-08
+</td>
+<td>
+Format numbers in text with sjmisc::big_mark()
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/6b7270ee75f5e8568e68f7422c6362f2090db63b/docs/01_VE_nomogram.html" target="_blank">6b7270e</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-09-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -624,6 +669,50 @@ WHO. Evaluation of COVID-19 vaccine effectiveness. 2021
 <li><p>Calculate vaccine effectiveness approximation using the Farrington method <span class="citation">(Farrington 1993)</span></p></li>
 </ul>
 </div>
+<div id="definitions" class="section level1">
+<h1>Definitions</h1>
+<ul>
+<li>VE = vaccine efficacy (in controlled research studies) or vaccine effectiveness (in real public health world)</li>
+</ul>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="41%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>en</th>
+<th>fr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VE</td>
+<td>vaccine efficacy (in controlled research studies) or vaccine effectiveness (in real public health world) =&gt; VE is 1 – odds of vaccination in cases compared to population</td>
+<td>efficacité vaccinale étudiée ou réelle =&gt; VE est 1 - rapport des <em>cotes</em> des vaccinés parmi les cas comparé àla population</td>
+</tr>
+<tr class="even">
+<td>PCV</td>
+<td>proportion of cases vaccinated</td>
+<td>proportion des cas vaccinés</td>
+</tr>
+<tr class="odd">
+<td>PPV</td>
+<td>proportion of population vaccinated</td>
+<td>proportion de la population vaccinée</td>
+</tr>
+</tbody>
+</table>
+<div id="the-equations" class="section level2">
+<h2>The equations</h2>
+<p>Look at the references for original formulas.</p>
+<pre class="r"><code>VE_equation &lt;- &quot;VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))&quot;
+
+PCV_equation &lt;- &quot;PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))&quot;</code></pre>
+</div>
+</div>
 <div id="setting-up-the-scene" class="section level1">
 <h1>Setting up the scene</h1>
 <pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, comment = NA, include = TRUE, fig.width = 7, fig.height = 7)
@@ -643,52 +732,93 @@ here::here()</code></pre>
 language_chosen &lt;- &quot;en&quot;
 # language_chosen &lt;- &quot;fr&quot;
 
+
+
 if (language_chosen == &#39;fr&#39;) {
   ## labels fr ---------------------------------
-  lab_y &lt;- &quot;PCV attendus = proportion des cas vaccinés attendus&quot;
-  lab_x &lt;- &quot;PPV = proportion de la population vaccinée&quot;
+  label_y &lt;- &quot;PCV attendus = proportion des cas vaccinés attendus&quot;
+  label_x &lt;- &quot;PPV = proportion de la population vaccinée&quot;
   title &lt;-
     &quot;Approximation rapide de l&#39;efficacité vaccinale réelle (VE)&quot;
   subtitle &lt;-
     &quot;Evaluation rapide / cas-population / Orenstein et Farrington&quot;
-  lab_VE &lt;- &quot;Efficacité vaccinale&quot;
+  
+  subtitle_t2 &lt;- &quot;Hypothesis for known cases&quot;
+  label_VE &lt;- &quot;Efficacité vaccinale&quot;
+  
+  
+  
   label_short &lt;-
     c(&quot;Tous&quot;, &quot;Moitié&quot;, &quot;Un sur 4&quot;, &quot;Un sur 10&quot;) # known vaccinated cases
   label_annotation_cases_vacc_known &lt;- gt::md(
-    &quot;**Hypothèses**  
-  Cas vaccinés connus : 1&#39;000  
-  Cas totaux : 30&#39;000  
-  Si la part connue  
-  des cas vaccinés  
+    &quot;**Hypothèses**
+  Cas vaccinés connus : 1&#39;000
+  Cas totaux : 30&#39;000
+  Si la part connue
+  des cas vaccinés
   est de ...&quot;
   )
   
+  label_prop_cases_vacc_known_hypothetical &lt;-
+    &quot;Proportion des cas vaccinés qui sont connus [a]&quot;
+  label_cases_vacc_N &lt;- &quot;cas vaccinés connus (N)  [b]&quot;
+  label_total_cases_N &lt;- &quot;Total des cas (N) [c]&quot;
+  label_cases_vacc_hypothetical_N &lt;-
+    &quot;Tous les cas vaccinés hypothétiques (N) [d = b / a]&quot;
+  label_cases_vacc_missed_N &lt;-
+    &quot;Cas vaccinés manqués (N) [e = d - a]&quot;
+  label_total_cases_hypothetical_N &lt;-
+    &quot;Total des cas hypothétiques (N) [f = c + e]&quot;
+  label_pcv_hypothetical &lt;-
+    &quot;Proportion cas vaccinés hypothétiques [PCV = d / f]&quot;
+  label_ppv_all &lt;- &quot;Proportion de la population vaccinée [PPV]&quot;
+  label_ve_hypothetical &lt;- &quot;Efficacité vaccinale hypothétique [VE]&quot;
+  label_point_color &lt;- &quot;Couleur pour VE hypothétique&quot;
+  label_label_hypothetical &lt;- &quot;Etiquette pour hypothèses&quot;
+  label_label_short &lt;- &quot;Cas vaccinés connus&quot;
+  
 } else {
   ## labels en ---------------------------------
-  lab_y &lt;- &quot;PCV expected = proportion of cases vaccinated expected&quot;
-  lab_x &lt;-  &quot;PPV = proportion of population vaccinated&quot;
+  label_y &lt;-
+    &quot;PCV expected = proportion of cases vaccinated expected&quot;
+  label_x &lt;-  &quot;PPV = proportion of population vaccinated&quot;
   title &lt;- &quot;Rapid assesment of vaccine effectivenes (VE)&quot;
   subtitle &lt;-
     &quot;Screening / case-population / Orenstein and Farrington method&quot;
-  lab_VE &lt;- &quot;Vaccine efficacy&quot;
+  
+  subtitle_t2 &lt;- &quot;Hypothesis for known cases&quot;
+  label_VE &lt;- &quot;Vaccine efficacy&quot;
+  
+  
   label_short &lt;-
     c(&quot;All&quot;, &quot;Half&quot;, &quot;One in 4&quot;, &quot;One in 10&quot;) # known vaccinated cases
   label_annotation_cases_vacc_known &lt;- gt::md(
-    &quot;**Hypothesis**  
-  Known vaccinated cases: 1&#39;000  
-  Total cases: 30&#39;000  
-  If the known part  
-  of vaccinated cases  
+    &quot;**Hypothesis**
+  Known vaccinated cases: 1&#39;000
+  Total cases: 30&#39;000
+  If the known part
+  of vaccinated cases
   is ...&quot;
   )
-}</code></pre>
-</div>
-<div id="the-equations" class="section level2">
-<h2>The equations</h2>
-<p>Look at the references for original formulas.</p>
-<pre class="r"><code>
-VE_equation &lt;- &quot;VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))&quot;
-PCV_equation &lt;- &quot;PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))&quot;
+  
+  label_prop_cases_vacc_known_hypothetical &lt;-
+    &quot;Proportion of known vaccinated cases [a]&quot;
+  label_cases_vacc_N &lt;- &quot;Known vaccinated cases (N) [b]&quot;
+  label_total_cases_N &lt;- &quot;Total cases (N) [c]&quot;
+  label_cases_vacc_hypothetical_N &lt;-
+    &quot;All hypothetical vaccinated cases (N) [d = b / a]&quot;
+  label_cases_vacc_missed_N &lt;-
+    &quot;Missed vaccinated cases (N) [e = d - a]&quot;
+  label_total_cases_hypothetical_N &lt;-
+    &quot;Total hypothetical cases (N) [f = c + e]&quot;
+  label_pcv_hypothetical &lt;-
+    &quot;Proportion of hypothetical vaccinated cases  [PCV = d / f]&quot;
+  label_ppv_all &lt;- &quot;Proportion of population vaccinated [PPV]&quot;
+  label_ve_hypothetical &lt;- &quot;Hypothetical vaccine effectiness [VE]&quot;
+  label_point_color &lt;- &quot;Color for VE hypothetical&quot;
+  label_label_hypothetical &lt;- &quot;Label for hypothetis&quot;
+  label_label_short &lt;- &quot;Known vaccinated cases&quot;
+}
 
 # caption_table : will be used as caption
 caption_table &lt;- VE_equation</code></pre>
@@ -696,11 +826,13 @@ caption_table &lt;- VE_equation</code></pre>
 <div id="load-libraries" class="section level2">
 <h2>Load libraries</h2>
 <pre class="r"><code>pacman::p_load(
-  data.table,
-  ggplot2,
-  ggpmisc,
-  ggrepel,
-  scales
+  data.table,   # managing data
+  ggplot2,      # create plots
+  ggpmisc,      # plot tweaking - i.e. insert a table in the plot
+  ggrepel,      # nice labels on plots
+  gt,           # nice tables
+  magrittr,     # for the pipe %&gt;% and the assignement pipe %&lt;&gt;%
+  scales        # for percent in graph axis
 )</code></pre>
 </div>
 <div id="setup-plots-and-tables" class="section level2">
@@ -765,7 +897,7 @@ tail(dt_1)
 4: 0.98 0.95 0.7101449
 5: 0.99 0.95 0.8319328
 6: 1.00 0.95 1.0000000</code></pre>
-<pre class="r"><code>## p1 - plot w nomogram ---------------------------------------------
+<pre class="r"><code>## p1 - plot empty nomogram ---------------------------------------------
 ## saved as p0_VE_nomogram.png
 (p1 &lt;- ggplot(dt_1,
               aes(PPV, PCV, group = VE,
@@ -774,8 +906,8 @@ tail(dt_1)
     labs(
       title = title,
       subtitle = subtitle,
-      x = lab_x,
-      y = lab_y,
+      x = label_x,
+      y = label_y,
       caption = caption_table
     ) +
     scale_x_continuous(n.breaks = 10) +
@@ -791,23 +923,30 @@ tail(dt_1)
 
 ggsave(&quot;p0_VE_nomogram.png&quot;, path = out_png4ppt)
 Saving 7 x 7 in image</code></pre>
+<p>This nomogram shows that :</p>
+<ul>
+<li><p>if no one is vaccinated in the population (PPV = 0), there will be no vaccinated amongst cases (PCV = 0)</p></li>
+<li><p>in the hypothetical situation of a population in which everyone is vaccinated (PPV = 1), all the cases would be vaccinated (PCV = 1) because no vaccine protects everyone in a population</p></li>
+<li><p>whatever the vaccine efficacy, the proportion of cases who are vaccinated will increase</p></li>
+<li><p>the higher the vaccine efficacy, the later this increase in PCV will occur</p></li>
+</ul>
 </div>
-<div id="create-some-examples" class="section level1">
-<h1>Create some examples</h1>
+<div id="create-some-example-tables" class="section level1">
+<h1>Create some example tables</h1>
 <pre class="r"><code>## example tables  --------------------------------------------------
-(t1_PPV50 &lt;-
-   dt_1[PPV == 0.5,][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+t1_PPV50 &lt;-
+   dt_1[PPV == 0.5,][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)]
 
-(t2_PPV40 &lt;-
-    dt_1[PPV == 0.4, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+t2_PPV40 &lt;-
+    dt_1[PPV == 0.4, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)]
 
-(t3_PPV80 &lt;-
-    dt_1[PPV == 0.8, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])</code></pre>
+t3_PPV80 &lt;-
+    dt_1[PPV == 0.8, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)]</code></pre>
 <div id="ppv-50" class="section level2">
 <h2>PPV 50%</h2>
 <pre class="r"><code>
 ## p0_1_VE_nomogram_PPV_50.png ------------------------------------------
-## create the plot with the reference table for PPV 50%
+## create the plot with the reference table for PPV 50% - the &#39;table&#39; option for annotate comes from ggmisc
 p1_ppv50 &lt;- p1 + annotate(&#39;table&#39;, x = 0.2, y = 0.89, label = list(t1_PPV50))
 ggsave(&quot;p0_1_VE_nomogram_PPV_50_no_data.png&quot;, path = out_png4ppt)
 Saving 7 x 7 in image
@@ -853,52 +992,80 @@ Don&#39;t know how to automatically pick scale for object of type from_markdown.
 ggsave(&quot;p0_1_VE_nomogram_PPV_50_data_global.png&quot;, path = out_png4ppt)
 Saving 7 x 7 in image
 Don&#39;t know how to automatically pick scale for object of type from_markdown. Defaulting to continuous.</code></pre>
-<div id="with-hypothesis" class="section level3">
-<h3>with hypothesis</h3>
+<p>The table in the plot indicates that for a vaccine coverage (PPV) of 50%, we would expect to find</p>
+<ul>
+<li><p>33% of cases who were vaccinated (PCV) - on in 3 - for a vaccine efficiency of 50%</p></li>
+<li><p>13% of cases who were vaccinated (PCV) - on in 8 - for a vaccine efficiency of 85%</p></li>
+<li><p>5% of cases who were vaccinated (PCV) - on in 20 - for a vaccine efficiency of 95%</p></li>
+</ul>
+<p>The green point indicates that for a PPV of 48.5% and a PCV measured of 2.3%, the vaccine effectiveness (VE) is 97.5%.</p>
+<p>This very high value for a vaccine effectiveness could be due to bias in the testing, like :</p>
+<ul>
+<li><p>different testing strategies between vaccinated and non-vaccinated, or between age groups</p></li>
+<li><p>insufficient testing of vaccinated persons who might attribute their symptoms</p></li>
+<li><p>…</p></li>
+</ul>
+<div id="explore-with-hypothesis" class="section level3">
+<h3>Explore with hypothesis</h3>
 <p>Persons who are fully vaccinated seem less likely to go for a test even with a few symptoms that are COVID-19 compatible.</p>
+<p>How does that impact this quick approximation?</p>
 <pre class="r"><code>
 
-## add an hypothetical value ----
+## Create hypothetical values ----
 ppv_all &lt;- 0.5
 total_cases_N &lt;- 30000
 cases_vacc_N &lt;- 1000
 
+prop_cases_vacc_known_hypothetical &lt;- c(1, .5, .25, .1)
 
 ## create a table for hypothesis ----
-prop_cases_vacc_tested_hypothetical &lt;- c(1, .5, .25, .1)
-# label_short &lt;-  c(&quot;All&quot;, &quot;Half&quot;, &quot;One in 4&quot;, &quot;One in 10&quot;) # known vaccinated cases
+dt_2 &lt;- data.table(prop_cases_vacc_known_hypothetical, cases_vacc_N, total_cases_N)
 
-dt_2 &lt;- data.table(prop_cases_vacc_tested_hypothetical, cases_vacc_N, total_cases_N)
+## cases_vacc_hypothetical_N : all hypothetical vaccinated cases&quot; ----
+## Number of known cases divided by the hypothetical proportion of known cases
+dt_2[, cases_vacc_hypothetical_N := cases_vacc_N / prop_cases_vacc_known_hypothetical]
 
-dt_2[, cases_vacc_hypothetical_N := cases_vacc_N / prop_cases_vacc_tested_hypothetical]
+## cases_vacc_missed_N : Missed vaccinated cases ----
+## Difference between all hypothetical vaccinated cases and number of known cases
 dt_2[, cases_vacc_missed_N := cases_vacc_hypothetical_N - cases_vacc_N]
+
+## total_cases_hypothetical_N : Total of cases hypothetical ----
+## Sum of total cases and the missed vaccinated ones
 dt_2[, total_cases_hypothetical_N := total_cases_N + cases_vacc_missed_N]
 
+## pcv_hypothetical : recalculated PCV with hypothesical values ----
 dt_2[, pcv_hypothetical := formattable::percent(cases_vacc_hypothetical_N / total_cases_hypothetical_N, 1)]
 
+## ppv_all : proportion of population vaccinated
+dt_2[, ppv_all := ppv_all]
+
+## ve_hypothetical : recalculated VE with hypothesical values ----
 dt_2[, ve_hypothetical := formattable::percent(1 - (pcv_hypothetical / (1 - pcv_hypothetical)) / (ppv_all / (1 - ppv_all)), 1)][]
-   prop_cases_vacc_tested_hypothetical cases_vacc_N total_cases_N
-1:                                1.00         1000         30000
-2:                                0.50         1000         30000
-3:                                0.25         1000         30000
-4:                                0.10         1000         30000
+   prop_cases_vacc_known_hypothetical cases_vacc_N total_cases_N
+1:                               1.00         1000         30000
+2:                               0.50         1000         30000
+3:                               0.25         1000         30000
+4:                               0.10         1000         30000
    cases_vacc_hypothetical_N cases_vacc_missed_N total_cases_hypothetical_N
 1:                      1000                   0                      30000
 2:                      2000                1000                      31000
 3:                      4000                3000                      33000
 4:                     10000                9000                      39000
-   pcv_hypothetical ve_hypothetical
-1:             3.3%           96.6%
-2:             6.5%           93.1%
-3:            12.1%           86.2%
-4:            25.6%           65.5%
-dt_2[, VE := ve_hypothetical]
-dt_2[, point_color:=fcase(
-  VE&lt;.8, &#39;#D55E00&#39;,
-  VE &gt;=.8 &amp; VE&lt;.9, &#39;#E69F00&#39;,
-  VE&gt;=.9, &#39;#009E73&#39;
-                           )]
+   pcv_hypothetical ppv_all ve_hypothetical
+1:             3.3%     0.5           96.6%
+2:             6.5%     0.5           93.1%
+3:            12.1%     0.5           86.2%
+4:            25.6%     0.5           65.5%
 
+## need to add same variable name for the plot ----
+dt_2[, VE := ve_hypothetical]
+
+## point_color : colorblind traffic light system based on VE value
+dt_2[, point_color := fcase(VE &lt; .8, &#39;#D55E00&#39;,              # red
+                            VE &gt;= .8 &amp; VE &lt; .9, &#39;#E69F00&#39;,   # orange
+                            VE &gt;= .9, &#39;#009E73&#39;)]            # green
+
+## label_hypothetical : add a label
 dt_2[,label_hypothetical :=
   paste0(&quot;PPV : &quot;,
          formattable::percent(ppv_all, 1),
@@ -906,28 +1073,52 @@ dt_2[,label_hypothetical :=
          pcv_hypothetical,
          &quot; =&gt; VE : &quot;,
          ve_hypothetical)]
+
+## label_short : see above - indicates the known cases proportion
 dt_2[,label_short := label_short][]
-   prop_cases_vacc_tested_hypothetical cases_vacc_N total_cases_N
-1:                                1.00         1000         30000
-2:                                0.50         1000         30000
-3:                                0.25         1000         30000
-4:                                0.10         1000         30000
+   prop_cases_vacc_known_hypothetical cases_vacc_N total_cases_N
+1:                               1.00         1000         30000
+2:                               0.50         1000         30000
+3:                               0.25         1000         30000
+4:                               0.10         1000         30000
    cases_vacc_hypothetical_N cases_vacc_missed_N total_cases_hypothetical_N
 1:                      1000                   0                      30000
 2:                      2000                1000                      31000
 3:                      4000                3000                      33000
 4:                     10000                9000                      39000
-   pcv_hypothetical ve_hypothetical    VE point_color
-1:             3.3%           96.6% 96.6%     #009E73
-2:             6.5%           93.1% 93.1%     #009E73
-3:            12.1%           86.2% 86.2%     #E69F00
-4:            25.6%           65.5% 65.5%     #D55E00
+   pcv_hypothetical ppv_all ve_hypothetical    VE point_color
+1:             3.3%     0.5           96.6% 96.6%     #009E73
+2:             6.5%     0.5           93.1% 93.1%     #009E73
+3:            12.1%     0.5           86.2% 86.2%     #E69F00
+4:            25.6%     0.5           65.5% 65.5%     #D55E00
                         label_hypothetical label_short
 1:  PPV : 50.0% - PCV : 3.3% =&gt; VE : 96.6%         All
 2:  PPV : 50.0% - PCV : 6.5% =&gt; VE : 93.1%        Half
 3: PPV : 50.0% - PCV : 12.1% =&gt; VE : 86.2%    One in 4
 4: PPV : 50.0% - PCV : 25.6% =&gt; VE : 65.5%   One in 10
 
+## add labels to dt_2 variables ----
+
+dt_2 &lt;- dt_2 %&gt;% sjlabelled::var_labels(
+  prop_cases_vacc_known_hypothetical = !!label_prop_cases_vacc_known_hypothetical,
+  cases_vacc_N = !!label_cases_vacc_N,
+  total_cases_N = !!label_total_cases_N,
+  cases_vacc_hypothetical_N = !!label_cases_vacc_hypothetical_N,
+  cases_vacc_missed_N = !!label_cases_vacc_missed_N,
+  total_cases_hypothetical_N = !!label_total_cases_hypothetical_N,
+  pcv_hypothetical = !!label_pcv_hypothetical,
+  ppv_all = !!label_ppv_all,
+  ve_hypothetical = !!label_ve_hypothetical,
+  VE = !!label_VE,
+  point_color = !!label_point_color,
+  label_hypothetical = !!label_label_hypothetical,
+  label_short = !!label_label_short
+)
+
+# str(dt_2)
+
+
+## save as xlsx
 name_xlsx &lt;-
   here::here(
     &#39;output&#39;,
@@ -937,7 +1128,49 @@ name_xlsx &lt;-
 
 writexl::write_xlsx(dt_2, name_xlsx)
 
-## add points and labels to the plot ----
+
+
+filename &lt;-   here::here(&#39;output&#39;, &#39;RData&#39;, &#39;t_0_1_VE_nomogram_PPV_50_data_global_hypothetical.RData&#39;)
+save(dt_2,  file = filename)
+</code></pre>
+<pre class="r"><code># names(dt_2)
+
+table_name &lt;- &quot;t0_1_VE_hypothesis.png&quot;
+
+dt_2_gt &lt;- dt_2[, !c(&#39;VE&#39;, &#39;point_color&#39;, &#39;label_hypothetical&#39;)] %&gt;% 
+  gt() %&gt;%
+  tab_header(title = title,
+             subtitle = subtitle_t2) %&gt;%
+  cols_label(
+  prop_cases_vacc_known_hypothetical = label_prop_cases_vacc_known_hypothetical,
+  cases_vacc_N = label_cases_vacc_N,
+  total_cases_N = label_total_cases_N,
+  cases_vacc_hypothetical_N = label_cases_vacc_hypothetical_N,
+  cases_vacc_missed_N = label_cases_vacc_missed_N,
+  total_cases_hypothetical_N = label_total_cases_hypothetical_N,
+  pcv_hypothetical = label_pcv_hypothetical,
+  ppv_all = label_ppv_all,
+  ve_hypothetical = label_ve_hypothetical,
+  # point_color = label_point_color,
+  # label_hypothetical = label_label_hypothetical,
+  label_short = label_label_short
+  ) %&gt;%
+  fmt_number(columns = c(2:6),
+             decimals = 0,
+             sep_mark = &quot;&#39;&quot;) %&gt;%
+  fmt_percent(columns = c(1,8), 
+              decimals = 0) %&gt;%
+
+  tab_footnote(footnote = VE_equation,
+               locations = cells_column_labels(columns = ppv_all))
+
+
+
+## save gt table as png
+dt_2_gt %&gt;% gtsave(table_name,
+                     path = out_png4ppt)</code></pre>
+<p><img src="figure/01_VE_nomogram.Rmd/dt_2_gt-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>## add points and labels to the plot ----
 p1 +
   # hypothetical points
   geom_point(
@@ -964,13 +1197,13 @@ p1 +
     label = label_annotation_cases_vacc_known
   )
 Warning: Ignoring unknown aesthetics: label</code></pre>
-<p><img src="figure/01_VE_nomogram.Rmd/p1_ppv50_b-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_VE_nomogram.Rmd/p2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>
 ggsave(&quot;p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png&quot;, path = out_png4ppt)
 Saving 7 x 7 in image
 
 ## NOTE : the ggtext::geom_textbox() gives a nice output with md format ... but it is very slow!</code></pre>
-<p>For a vaccination coverage of 0.5, a number of total cases of 30000 and 1000 vaccinated, this exploration shows that if we know :</p>
+<p>For a vaccination coverage of 50%, a number of total cases of 30’000 and 1’000 vaccinated, this exploration shows that if we know :</p>
 <ul>
 <li><p>all or half of the cases, the vaccine effectiveness is close the vaccine efficacy</p></li>
 <li><p>only one vaccinated cases in 4, the vaccine effectiveness is lower but acceptable</p></li>
@@ -981,7 +1214,7 @@ Saving 7 x 7 in image
 <div id="ppv-40" class="section level2">
 <h2>PPV 40%</h2>
 <pre class="r"><code>## manual update 
-ppv_all &lt;- 0.485
+ppv_all &lt;- 0.395
 pcv_all &lt;- 0.023
 
 
@@ -1091,33 +1324,35 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] scales_1.1.1      ggrepel_0.9.1     ggpmisc_0.4.2-1   ggpp_0.4.2       
-[5] ggplot2_3.3.5     data.table_1.14.0 workflowr_1.6.2  
+[1] scales_1.1.1      magrittr_2.0.1    gt_0.3.1          ggrepel_0.9.1    
+[5] ggpmisc_0.4.2-1   ggpp_0.4.2        ggplot2_3.3.5     data.table_1.14.0
+[9] workflowr_1.6.2  
 
 loaded via a namespace (and not attached):
- [1] tidyr_1.1.3        splines_4.1.0      here_1.0.1         modelr_0.1.8      
- [5] datawizard_0.2.0   assertthat_0.2.1   highr_0.9          yaml_2.2.1        
- [9] bayestestR_0.10.5  pillar_1.6.2       backports_1.2.1    lattice_0.20-44   
-[13] quantreg_5.86      glue_1.4.2         digest_0.6.27      gridtext_0.1.4    
-[17] promises_1.2.0.1   minqa_1.2.4        colorspace_2.0-2   htmltools_0.5.1.1 
-[21] httpuv_1.6.1       Matrix_1.3-4       conquer_1.0.2      pkgconfig_2.0.3   
-[25] broom_0.7.9        sjPlot_2.8.9       SparseM_1.81       purrr_0.3.4       
-[29] xtable_1.8-4       mvtnorm_1.1-2      whisker_0.4        later_1.2.0       
-[33] lme4_1.1-27.1      MatrixModels_0.5-0 emmeans_1.6.3      git2r_0.28.0      
-[37] tibble_3.1.3       farver_2.1.0       generics_0.1.0     sjlabelled_1.1.8  
-[41] ellipsis_0.3.2     pacman_0.5.1       withr_2.4.2        magrittr_2.0.1    
-[45] crayon_1.4.1       effectsize_0.4.5   ggtext_0.1.1       estimability_1.3  
-[49] evaluate_0.14      fs_1.5.0           fansi_0.5.0        nlme_3.1-152      
-[53] MASS_7.3-54        xml2_1.3.2         tools_4.1.0        lifecycle_1.0.0   
-[57] matrixStats_0.60.0 stringr_1.4.0      munsell_0.5.0      writexl_1.4.0     
-[61] formattable_0.2.1  ggeffects_1.1.1    compiler_4.1.0     rlang_0.4.11      
-[65] nloptr_1.2.2.2     grid_4.1.0         gt_0.3.1           parameters_0.14.0 
-[69] htmlwidgets_1.5.3  labeling_0.4.2     rmarkdown_2.10     boot_1.3-28       
-[73] gtable_0.3.0       sjstats_0.18.1     DBI_1.1.1          markdown_1.1      
-[77] sjmisc_2.8.7       R6_2.5.1           gridExtra_2.3      knitr_1.33        
-[81] dplyr_1.0.7        performance_0.7.3  utf8_1.2.2         rprojroot_2.0.2   
-[85] insight_0.14.3     stringi_1.7.3      Rcpp_1.0.7         vctrs_0.3.8       
-[89] tidyselect_1.1.1   xfun_0.25          coda_0.19-4       </code></pre>
+ [1] nlme_3.1-152       ggtext_0.1.1       matrixStats_0.60.0 fs_1.5.0          
+ [5] webshot_0.5.2      insight_0.14.3     rprojroot_2.0.2    tools_4.1.0       
+ [9] backports_1.2.1    utf8_1.2.2         R6_2.5.1           sjlabelled_1.1.8  
+[13] DBI_1.1.1          colorspace_2.0-2   withr_2.4.2        processx_3.5.2    
+[17] tidyselect_1.1.1   gridExtra_2.3      emmeans_1.6.3      compiler_4.1.0    
+[21] git2r_0.28.0       performance_0.7.3  quantreg_5.86      pacman_0.5.1      
+[25] SparseM_1.81       xml2_1.3.2         labeling_0.4.2     bayestestR_0.10.5 
+[29] sass_0.4.0         checkmate_2.0.0    mvtnorm_1.1-2      callr_3.7.0       
+[33] stringr_1.4.0      digest_0.6.27      minqa_1.2.4        rmarkdown_2.10    
+[37] pkgconfig_2.0.3    htmltools_0.5.1.1  lme4_1.1-27.1      highr_0.9         
+[41] htmlwidgets_1.5.3  rlang_0.4.11       generics_0.1.0     farver_2.1.0      
+[45] jsonlite_1.7.2     dplyr_1.0.7        sjPlot_2.8.9       parameters_0.14.0 
+[49] Matrix_1.3-4       Rcpp_1.0.7         munsell_0.5.0      fansi_0.5.0       
+[53] lifecycle_1.0.0    stringi_1.7.3      whisker_0.4        yaml_2.2.1        
+[57] MASS_7.3-54        grid_4.1.0         promises_1.2.0.1   sjmisc_2.8.7      
+[61] crayon_1.4.1       lattice_0.20-44    ggeffects_1.1.1    splines_4.1.0     
+[65] gridtext_0.1.4     sjstats_0.18.1     ps_1.6.0           knitr_1.33        
+[69] pillar_1.6.2       boot_1.3-28        markdown_1.1       estimability_1.3  
+[73] effectsize_0.4.5   glue_1.4.2         evaluate_0.14      modelr_0.1.8      
+[77] vctrs_0.3.8        nloptr_1.2.2.2     httpuv_1.6.1       MatrixModels_0.5-0
+[81] gtable_0.3.0       purrr_0.3.4        tidyr_1.1.3        assertthat_0.2.1  
+[85] datawizard_0.2.0   xfun_0.25          formattable_0.2.1  xtable_1.8-4      
+[89] broom_0.7.9        coda_0.19-4        later_1.2.0        tibble_3.1.3      
+[93] conquer_1.0.2      writexl_1.4.0      ellipsis_0.3.2     here_1.0.1        </code></pre>
 </div>
 </div>
 
