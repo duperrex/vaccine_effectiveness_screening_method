@@ -17,7 +17,7 @@ Summary tables and graphs
 
 - [Overall](02a_VE_screening_method_overall.html)
 
-- [By semestre](02b_VE_screening_method_by_semestre.html)
+- [By semestre](02b_VE_screening_method_by_semestre.html) - work in progess
 
-- [Weekly](02c_VE_screening_method_weekly.html)
+- [Weekly](02c_VE_screening_method_weekly.html) - work in progess
 
