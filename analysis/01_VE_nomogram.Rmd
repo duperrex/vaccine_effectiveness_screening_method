@@ -1,7 +1,7 @@
 ---
 title: "COVID-19 - Vaccine efficiency/effectiveness - nomogram"
 author: "olivier.duperrex@unisante.ch"
-date: "version 2021-09-03"
+date: "version 2021-09-08"
 output:
   html_document:
   df_print: paged
@@ -50,6 +50,46 @@ knitr::include_graphics(
 -   Calculate vaccine effectiveness approximation using the Farrington
     method [@farrington1993]
 
+# Definitions
+
+-   VE = vaccine efficacy (in controlled research studies) or vaccine
+    effectiveness (in real public health world)
+
++-----------------------+-----------------------------+-----------------+
+| Abbreviation          | en                          | fr              |
++=======================+=============================+=================+
+| VE                    | vaccine efficacy (in        | efficacité      |
+|                       | controlled research         | vaccinale       |
+|                       | studies) or vaccine         | étudiée ou      |
+|                       | effectiveness (in real      | réelle =\> VE   |
+|                       | public health world) =\> VE | est 1 - rapport |
+|                       | is 1 -- odds of vaccination | des *cotes* des |
+|                       | in cases compared to        | vaccinés parmi  |
+|                       | population                  | les cas comparé |
+|                       |                             | àla population  |
++-----------------------+-----------------------------+-----------------+
+| PCV                   | proportion of cases         | proportion des  |
+|                       | vaccinated                  | cas vaccinés    |
++-----------------------+-----------------------------+-----------------+
+| PPV                   | proportion of population    | proportion de   |
+|                       | vaccinated                  | la population   |
+|                       |                             | vaccinée        |
++-----------------------+-----------------------------+-----------------+
+
+## The equations
+
+Look at the references for original formulas.
+
+
+```{r equations}
+
+VE_equation <- "VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))"
+
+PCV_equation <- "PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))"
+
+
+```
+
 # Setting up the scene
 
 ```{r setup}
@@ -73,71 +113,112 @@ here::here()
 language_chosen <- "en"
 # language_chosen <- "fr"
 
+
+
 if (language_chosen == 'fr') {
   ## labels fr ---------------------------------
-  lab_y <- "PCV attendus = proportion des cas vaccinés attendus"
-  lab_x <- "PPV = proportion de la population vaccinée"
+  label_y <- "PCV attendus = proportion des cas vaccinés attendus"
+  label_x <- "PPV = proportion de la population vaccinée"
   title <-
     "Approximation rapide de l'efficacité vaccinale réelle (VE)"
   subtitle <-
     "Evaluation rapide / cas-population / Orenstein et Farrington"
-  lab_VE <- "Efficacité vaccinale"
+  
+  subtitle_t2 <- "Hypothesis for known cases"
+  label_VE <- "Efficacité vaccinale"
+  
+  
+  
   label_short <-
     c("Tous", "Moitié", "Un sur 4", "Un sur 10") # known vaccinated cases
   label_annotation_cases_vacc_known <- gt::md(
-    "**Hypothèses**  
-  Cas vaccinés connus : 1'000  
-  Cas totaux : 30'000  
-  Si la part connue  
-  des cas vaccinés  
+    "**Hypothèses**
+  Cas vaccinés connus : 1'000
+  Cas totaux : 30'000
+  Si la part connue
+  des cas vaccinés
   est de ..."
   )
   
+  label_prop_cases_vacc_known_hypothetical <-
+    "Proportion des cas vaccinés qui sont connus [a]"
+  label_cases_vacc_N <- "cas vaccinés connus (N)  [b]"
+  label_total_cases_N <- "Total des cas (N) [c]"
+  label_cases_vacc_hypothetical_N <-
+    "Tous les cas vaccinés hypothétiques (N) [d = b / a]"
+  label_cases_vacc_missed_N <-
+    "Cas vaccinés manqués (N) [e = d - a]"
+  label_total_cases_hypothetical_N <-
+    "Total des cas hypothétiques (N) [f = c + e]"
+  label_pcv_hypothetical <-
+    "Proportion cas vaccinés hypothétiques [PCV = d / f]"
+  label_ppv_all <- "Proportion de la population vaccinée [PPV]"
+  label_ve_hypothetical <- "Efficacité vaccinale hypothétique [VE]"
+  label_point_color <- "Couleur pour VE hypothétique"
+  label_label_hypothetical <- "Etiquette pour hypothèses"
+  label_label_short <- "Cas vaccinés connus"
+  
 } else {
   ## labels en ---------------------------------
-  lab_y <- "PCV expected = proportion of cases vaccinated expected"
-  lab_x <-  "PPV = proportion of population vaccinated"
+  label_y <-
+    "PCV expected = proportion of cases vaccinated expected"
+  label_x <-  "PPV = proportion of population vaccinated"
   title <- "Rapid assesment of vaccine effectivenes (VE)"
   subtitle <-
     "Screening / case-population / Orenstein and Farrington method"
-  lab_VE <- "Vaccine efficacy"
+  
+  subtitle_t2 <- "Hypothesis for known cases"
+  label_VE <- "Vaccine efficacy"
+  
+  
   label_short <-
     c("All", "Half", "One in 4", "One in 10") # known vaccinated cases
   label_annotation_cases_vacc_known <- gt::md(
-    "**Hypothesis**  
-  Known vaccinated cases: 1'000  
-  Total cases: 30'000  
-  If the known part  
-  of vaccinated cases  
+    "**Hypothesis**
+  Known vaccinated cases: 1'000
+  Total cases: 30'000
+  If the known part
+  of vaccinated cases
   is ..."
   )
+  
+  label_prop_cases_vacc_known_hypothetical <-
+    "Proportion of known vaccinated cases [a]"
+  label_cases_vacc_N <- "Known vaccinated cases (N) [b]"
+  label_total_cases_N <- "Total cases (N) [c]"
+  label_cases_vacc_hypothetical_N <-
+    "All hypothetical vaccinated cases (N) [d = b / a]"
+  label_cases_vacc_missed_N <-
+    "Missed vaccinated cases (N) [e = d - a]"
+  label_total_cases_hypothetical_N <-
+    "Total hypothetical cases (N) [f = c + e]"
+  label_pcv_hypothetical <-
+    "Proportion of hypothetical vaccinated cases  [PCV = d / f]"
+  label_ppv_all <- "Proportion of population vaccinated [PPV]"
+  label_ve_hypothetical <- "Hypothetical vaccine effectiness [VE]"
+  label_point_color <- "Color for VE hypothetical"
+  label_label_hypothetical <- "Label for hypothetis"
+  label_label_short <- "Known vaccinated cases"
 }
-
-```
-
-## The equations
-
-Look at the references for original formulas.
-
-
-```{r equations}
-
-VE_equation <- "VE = 1 - (PCV / (1 - PCV)) / (PPV / (1 - PPV))"
-PCV_equation <- "PCV = (PPV - (PPV * VE)) / (1 - (PPV * VE))"
 
 # caption_table : will be used as caption
 caption_table <- VE_equation
+
 ```
+
+
 
 ## Load libraries
 
 ```{r load libraries}
 pacman::p_load(
-  data.table,
-  ggplot2,
-  ggpmisc,
-  ggrepel,
-  scales
+  data.table,   # managing data
+  ggplot2,      # create plots
+  ggpmisc,      # plot tweaking - i.e. insert a table in the plot
+  ggrepel,      # nice labels on plots
+  gt,           # nice tables
+  magrittr,     # for the pipe %>% and the assignement pipe %<>%
+  scales        # for percent in graph axis
 )
 ```
 
@@ -183,7 +264,7 @@ tail(dt_1)
 
 
 ```{r p1}
-## p1 - plot w nomogram ---------------------------------------------
+## p1 - plot empty nomogram ---------------------------------------------
 ## saved as p0_VE_nomogram.png
 (p1 <- ggplot(dt_1,
               aes(PPV, PCV, group = VE,
@@ -192,8 +273,8 @@ tail(dt_1)
     labs(
       title = title,
       subtitle = subtitle,
-      x = lab_x,
-      y = lab_y,
+      x = label_x,
+      y = label_y,
       caption = caption_table
     ) +
     scale_x_continuous(n.breaks = 10) +
@@ -209,18 +290,31 @@ tail(dt_1)
 ggsave("p0_VE_nomogram.png", path = out_png4ppt)
 ```
 
-# Create some examples
+
+This nomogram shows that :
+
+* if no one is vaccinated in the population (PPV = 0), there will be no vaccinated amongst cases (PCV = 0)
+
+* in the hypothetical situation of a population in which everyone is vaccinated (PPV = 1), all the cases would be vaccinated (PCV = 1) because no vaccine protects everyone in a population
+
+* whatever the vaccine efficacy,  the proportion of cases who are vaccinated will increase
+
+* the higher the vaccine efficacy, the later this increase in PCV will occur
+
+
+
+# Create some example tables
 
 ```{r tables}
 ## example tables  --------------------------------------------------
-(t1_PPV50 <-
-   dt_1[PPV == 0.5,][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+t1_PPV50 <-
+   dt_1[PPV == 0.5,][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)]
 
-(t2_PPV40 <-
-    dt_1[PPV == 0.4, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+t2_PPV40 <-
+    dt_1[PPV == 0.4, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)]
 
-(t3_PPV80 <-
-    dt_1[PPV == 0.8, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)])
+t3_PPV80 <-
+    dt_1[PPV == 0.8, ][, PCV := round(PCV, 2)][, VE := percent(VE)][, one_in := round(1 / PCV)]
 
 ```
 
@@ -230,7 +324,7 @@ ggsave("p0_VE_nomogram.png", path = out_png4ppt)
 ```{r p1_ppv50}
 
 ## p0_1_VE_nomogram_PPV_50.png ------------------------------------------
-## create the plot with the reference table for PPV 50%
+## create the plot with the reference table for PPV 50% - the 'table' option for annotate comes from ggmisc
 p1_ppv50 <- p1 + annotate('table', x = 0.2, y = 0.89, label = list(t1_PPV50))
 ggsave("p0_1_VE_nomogram_PPV_50_no_data.png", path = out_png4ppt)
 
@@ -273,38 +367,75 @@ p1_ppv50_a
 ggsave("p0_1_VE_nomogram_PPV_50_data_global.png", path = out_png4ppt)
 ```
 
-### with hypothesis
-Persons who are fully vaccinated seem less likely to go for a test even with a few symptoms that are COVID-19 compatible.
+
+The table in the plot indicates that for a vaccine coverage (PPV) of 50%, we would expect to find 
+
+* 33% of cases who were vaccinated (PCV) - on in 3 - for a vaccine efficiency of 50%
+
+* 13% of cases who were vaccinated (PCV) - on in 8 - for a vaccine efficiency of 85%
+
+* 5% of cases who were vaccinated (PCV) - on in 20 - for a vaccine efficiency of 95%
+
+The green point indicates that for a PPV of 48.5% and a PCV measured of 2.3%, the vaccine effectiveness (VE) is 97.5%.
+
+This very high value for a vaccine effectiveness could be due to bias in the testing, like : 
+
+* different testing strategies between vaccinated and non-vaccinated, or between age groups
+
+* insufficient testing of vaccinated persons who might attribute their symptoms
+
+* ...
+
+
+
+### Explore with hypothesis
+Persons who are fully vaccinated seem less likely to go for a test even with a few symptoms that are COVID-19 compatible. 
+
+How does that impact this quick approximation?
 
 ```{r p1_ppv50_b}
 
 
-## add an hypothetical value ----
+## Create hypothetical values ----
 ppv_all <- 0.5
 total_cases_N <- 30000
 cases_vacc_N <- 1000
 
+prop_cases_vacc_known_hypothetical <- c(1, .5, .25, .1)
 
 ## create a table for hypothesis ----
-prop_cases_vacc_tested_hypothetical <- c(1, .5, .25, .1)
-# label_short <-  c("All", "Half", "One in 4", "One in 10") # known vaccinated cases
+dt_2 <- data.table(prop_cases_vacc_known_hypothetical, cases_vacc_N, total_cases_N)
 
-dt_2 <- data.table(prop_cases_vacc_tested_hypothetical, cases_vacc_N, total_cases_N)
+## cases_vacc_hypothetical_N : all hypothetical vaccinated cases" ----
+## Number of known cases divided by the hypothetical proportion of known cases
+dt_2[, cases_vacc_hypothetical_N := cases_vacc_N / prop_cases_vacc_known_hypothetical]
 
-dt_2[, cases_vacc_hypothetical_N := cases_vacc_N / prop_cases_vacc_tested_hypothetical]
+## cases_vacc_missed_N : Missed vaccinated cases ----
+## Difference between all hypothetical vaccinated cases and number of known cases
 dt_2[, cases_vacc_missed_N := cases_vacc_hypothetical_N - cases_vacc_N]
+
+## total_cases_hypothetical_N : Total of cases hypothetical ----
+## Sum of total cases and the missed vaccinated ones
 dt_2[, total_cases_hypothetical_N := total_cases_N + cases_vacc_missed_N]
 
+## pcv_hypothetical : recalculated PCV with hypothesical values ----
 dt_2[, pcv_hypothetical := formattable::percent(cases_vacc_hypothetical_N / total_cases_hypothetical_N, 1)]
 
-dt_2[, ve_hypothetical := formattable::percent(1 - (pcv_hypothetical / (1 - pcv_hypothetical)) / (ppv_all / (1 - ppv_all)), 1)][]
-dt_2[, VE := ve_hypothetical]
-dt_2[, point_color:=fcase(
-  VE<.8, '#D55E00',
-  VE >=.8 & VE<.9, '#E69F00',
-  VE>=.9, '#009E73'
-                           )]
+## ppv_all : proportion of population vaccinated
+dt_2[, ppv_all := ppv_all]
 
+## ve_hypothetical : recalculated VE with hypothesical values ----
+dt_2[, ve_hypothetical := formattable::percent(1 - (pcv_hypothetical / (1 - pcv_hypothetical)) / (ppv_all / (1 - ppv_all)), 1)][]
+
+## need to add same variable name for the plot ----
+dt_2[, VE := ve_hypothetical]
+
+## point_color : colorblind traffic light system based on VE value
+dt_2[, point_color := fcase(VE < .8, '#D55E00',              # red
+                            VE >= .8 & VE < .9, '#E69F00',   # orange
+                            VE >= .9, '#009E73')]            # green
+
+## label_hypothetical : add a label
 dt_2[,label_hypothetical :=
   paste0("PPV : ",
          formattable::percent(ppv_all, 1),
@@ -312,8 +443,32 @@ dt_2[,label_hypothetical :=
          pcv_hypothetical,
          " => VE : ",
          ve_hypothetical)]
+
+## label_short : see above - indicates the known cases proportion
 dt_2[,label_short := label_short][]
 
+## add labels to dt_2 variables ----
+
+dt_2 <- dt_2 %>% sjlabelled::var_labels(
+  prop_cases_vacc_known_hypothetical = !!label_prop_cases_vacc_known_hypothetical,
+  cases_vacc_N = !!label_cases_vacc_N,
+  total_cases_N = !!label_total_cases_N,
+  cases_vacc_hypothetical_N = !!label_cases_vacc_hypothetical_N,
+  cases_vacc_missed_N = !!label_cases_vacc_missed_N,
+  total_cases_hypothetical_N = !!label_total_cases_hypothetical_N,
+  pcv_hypothetical = !!label_pcv_hypothetical,
+  ppv_all = !!label_ppv_all,
+  ve_hypothetical = !!label_ve_hypothetical,
+  VE = !!label_VE,
+  point_color = !!label_point_color,
+  label_hypothetical = !!label_label_hypothetical,
+  label_short = !!label_label_short
+)
+
+# str(dt_2)
+
+
+## save as xlsx
 name_xlsx <-
   here::here(
     'output',
@@ -323,6 +478,58 @@ name_xlsx <-
 
 writexl::write_xlsx(dt_2, name_xlsx)
 
+
+
+filename <-   here::here('output', 'RData', 't_0_1_VE_nomogram_PPV_50_data_global_hypothetical.RData')
+save(dt_2,  file = filename)
+
+
+```
+
+
+
+```{r dt_2_gt}
+# names(dt_2)
+
+table_name <- "t0_1_VE_hypothesis.png"
+
+dt_2_gt <- dt_2[, !c('VE', 'point_color', 'label_hypothetical')] %>% 
+  gt() %>%
+  tab_header(title = title,
+             subtitle = subtitle_t2) %>%
+  cols_label(
+  prop_cases_vacc_known_hypothetical = label_prop_cases_vacc_known_hypothetical,
+  cases_vacc_N = label_cases_vacc_N,
+  total_cases_N = label_total_cases_N,
+  cases_vacc_hypothetical_N = label_cases_vacc_hypothetical_N,
+  cases_vacc_missed_N = label_cases_vacc_missed_N,
+  total_cases_hypothetical_N = label_total_cases_hypothetical_N,
+  pcv_hypothetical = label_pcv_hypothetical,
+  ppv_all = label_ppv_all,
+  ve_hypothetical = label_ve_hypothetical,
+  # point_color = label_point_color,
+  # label_hypothetical = label_label_hypothetical,
+  label_short = label_label_short
+  ) %>%
+  fmt_number(columns = c(2:6),
+             decimals = 0,
+             sep_mark = "'") %>%
+  fmt_percent(columns = c(1,8), 
+              decimals = 0) %>%
+
+  tab_footnote(footnote = VE_equation,
+               locations = cells_column_labels(columns = ppv_all))
+
+
+
+## save gt table as png
+dt_2_gt %>% gtsave(table_name,
+                     path = out_png4ppt)
+
+```
+
+
+```{r p2}
 ## add points and labels to the plot ----
 p1 +
   # hypothetical points
@@ -355,7 +562,8 @@ ggsave("p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png", path = out_png4pp
 ## NOTE : the ggtext::geom_textbox() gives a nice output with md format ... but it is very slow!
 ```
 
-For a vaccination coverage of `r ppv_all`, a number of total cases of `r total_cases_N` and `r cases_vacc_N` vaccinated, this exploration shows that if we know :
+
+For a vaccination coverage of `r formattable::percent(ppv_all,0)`, a number of total cases of `r sjmisc::big_mark(total_cases_N, "'")` and `r sjmisc::big_mark(cases_vacc_N, "'")` vaccinated, this exploration shows that if we know :
 
 * all or half of the cases, the vaccine effectiveness is close the vaccine efficacy 
 
@@ -369,7 +577,7 @@ For a vaccination coverage of `r ppv_all`, a number of total cases of `r total_c
 
 ```{r p1_ppv40}
 ## manual update 
-ppv_all <- 0.485
+ppv_all <- 0.395
 pcv_all <- 0.023
 
 
