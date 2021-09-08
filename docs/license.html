@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -262,7 +264,13 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -297,7 +305,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-08-26
+<strong>Last updated:</strong> 2021-09-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -328,16 +336,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong56e60e2"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 56e60e2 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree61bea1319a369dcf5ec19ffd921c4e9a4c23af35targetblank61bea13a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/61bea1319a369dcf5ec19ffd921c4e9a4c23af35" target="_blank">61bea13</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong56e60e2" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomduperrexvaccineeffectivenessscreeningmethodtree61bea1319a369dcf5ec19ffd921c4e9a4c23af35targetblank61bea13a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 56e60e2. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/tree/61bea1319a369dcf5ec19ffd921c4e9a4c23af35" target="_blank">61bea13</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -346,16 +354,14 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  0_run_ME.R
-    Untracked:  analysis/VE_nomogram.Rmd
-    Untracked:  analysis/references.bib
-    Untracked:  images/
-    Untracked:  output/png4ppt/
+    Ignored:    _sandpit/
+    Ignored:    output/RData/
+    Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global.png
+    Ignored:    output/png4ppt/p0_1_VE_nomogram_PPV_50_data_global_hypothetical.png
+    Ignored:    output/xlsx/
 
 Unstaged changes:
-    Modified:   _workflowr.yml
+    Modified:   0_run_ME.R
 
 </code></pre>
 <p>
@@ -399,16 +405,16 @@ Message
 Rmd
 </td>
 <td>
-56e60e2
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/f6b3e7ffd7c889c669d1ac1d0ec8b63506474ee5/analysis/license.Rmd" target="_blank">f6b3e7f</a>
 </td>
 <td>
 Olivier.Duperrex
 </td>
 <td>
-2021-08-26
+2021-09-08
 </td>
 <td>
-Update info
+Add complete links to license
 </td>
 </tr>
 <tr>
@@ -416,7 +422,7 @@ Update info
 html
 </td>
 <td>
-59ef0ba
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/6995beaf4d54a10bafd4827bd740491cf6e464f7/docs/license.html" target="_blank">6995bea</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -433,7 +439,41 @@ Build site.
 Rmd
 </td>
 <td>
-ef8e6ee
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/56e60e2e1c370999d3493e5e1914a6b7def75efa/analysis/license.Rmd" target="_blank">56e60e2</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-08-26
+</td>
+<td>
+Update info
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/duperrex/vaccine_effectiveness_screening_method/59ef0bafd2354e7ce0acf71a2052eda7828ab8dd/docs/license.html" target="_blank">59ef0ba</a>
+</td>
+<td>
+Olivier.Duperrex
+</td>
+<td>
+2021-08-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/ef8e6ee6897de35ab387a5948116c744cd425f3f/analysis/license.Rmd" target="_blank">ef8e6ee</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -450,7 +490,7 @@ Update info
 Rmd
 </td>
 <td>
-5422653
+<a href="https://github.com/duperrex/vaccine_effectiveness_screening_method/blob/5422653a9f4a51cb3060c1186dcff283f8009e18/analysis/license.Rmd" target="_blank">5422653</a>
 </td>
 <td>
 Olivier.Duperrex
@@ -469,7 +509,9 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>Vaccine effectiveness by screening method © 2021 by Olivier Duperrex is licensed under CC BY-NC-SA 4.0</p>
+<p>Vaccine effectiveness by screening method © 2021 by Olivier Duperrex is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p>Shield: <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="CC BY-NC-SA 4.0" /></a></p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="CC BY-NC-SA 4.0" /></a></p>
 <p>Citation: Duperrex O., Vaccine effectiveness by screening method. 2021. <a href="https://github.com/duperrex/vaccine_effectiveness_screening_method" class="uri">https://github.com/duperrex/vaccine_effectiveness_screening_method</a></p>
 
 
