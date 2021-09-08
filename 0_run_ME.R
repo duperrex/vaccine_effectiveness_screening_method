@@ -35,18 +35,21 @@ create_folder <- function(x){
 # 01. index.Rmd ----------------------------------------------------
 ## Update when adding a new Rmd page
 wflow_publish('analysis/index.Rmd',
-              'add VE')
+              'Update text')
 
 wflow_publish('analysis/about.Rmd',
               'Update info')
 
 wflow_publish('analysis/license.Rmd',
-              'Update info')
+              'Add complete links to license')
 
 wflow_publish('README.md', 'Update text')
 
 wflow_publish('analysis/01_VE_nomogram.Rmd',
-              'Update text')
+              'Format numbers in text with sjmisc::big_mark()')
+
+wflow_publish('analysis/02a_VE_screening_method_overall.Rmd',
+              'Initial commit')
 
 ## to rename files
 # wflow_rename(
